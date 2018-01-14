@@ -1,1 +1,1 @@
-# Smart-Editor
+# Smart Editor
