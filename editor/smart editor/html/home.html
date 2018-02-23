@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Editor</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://materializecss.com/css/ghpages-materialize.css" />
+
+</head>
+
+<body>
+<div class="header">	
+    	<h5>SMART EDITOR</h5>     
+</div>
+	<div class="sidenav">
+    		<a href="index.html" title="Home"><i class="material-icons">home</i></a>
+        	<a href="index.html" title="Files"><i class="material-icons">folder</i></a>
+  			<button class="dropdown-btn"><a href="#" title="Tools"> <i id="fa fa-caret-down" class="material-icons" >list</i></a></button>
+  				<div class="dropdown-container">
+    		          <a href="index.html" title="notes"><i class="material-icons">note</i></a>
+            	      <a href="index.html" title="editor"><i class="material-icons">border_color</i></a>
+                	  <a href="index.html" title="Code Convertor"><i class="material-icons">code</i></a>
+                 	  <a href="index.html" title="Translator"><i class="material-icons">translate</i></a>
+                 </div>
+           	<a href="index.html" title="Trash"><i class="material-icons">delete</i></a>
+        	<a href="index.html" title="Settings"><i class="material-icons">settings</i></a>
+        	<a href="index.html" title="account circle"><i class="material-icons">account_circle</i></a> 
+    </div>
+    <div class="welcome">
+    	<div class="new">
+		<textarea></textarea>
+        </div>
+        
+        <div class="new1">
+        <div id="log"></div>
+        </div>
+        
+     <select id="langsel" onchange="window.lastFile && recognizeFile(window.lastFile)">
+		<option value='afr'     > Afrikaans             </option>
+		<option value='ara'     > Arabic                </option>
+		<option value='aze'     > Azerbaijani           </option>
+		<option value='bel'     > Belarusian            </option>
+		<option value='ben'     > Bengali               </option>
+		<option value='bul'     > Bulgarian             </option>
+		<option value='cat'     > Catalan               </option>
+		<option value='ces'     > Czech                 </option>
+		<option value='chi_sim' > Chinese               </option>
+		<option value='chi_tra' > Traditional Chinese   </option>
+		<option value='chr'     > Cherokee              </option>
+		<option value='dan'     > Danish                </option>
+		<option value='deu'     > German                </option>
+		<option value='ell'     > Greek                 </option>
+		<option value='eng'     selected> English       </option>
+		<option value='enm'     > English (Old)         </option>
+		<option value='meme'    > Internet Meme         </option>
+		<option value='epo'     > Esperanto             </option>
+		<option value='epo_alt' > Esperanto alternative </option>
+		<option value='equ'     > Math                  </option>
+		<option value='est'     > Estonian              </option>
+		<option value='eus'     > Basque                </option>
+		<option value='fin'     > Finnish               </option>
+		<option value='fra'     > French                </option>
+		<option value='frk'     > Frankish              </option>
+		<option value='frm'     > French (Old)          </option>
+		<option value='glg'     > Galician              </option>
+		<option value='grc'     > Ancient Greek         </option>
+		<option value='heb'     > Hebrew                </option>
+		<option value='hin'     > Hindi                 </option>
+		<option value='hrv'     > Croatian              </option>
+		<option value='hun'     > Hungarian             </option>
+		<option value='ind'     > Indonesian            </option>
+		<option value='isl'     > Icelandic             </option>
+		<option value='ita'     > Italian               </option>
+		<option value='ita_old' > Italian (Old)         </option>
+		<option value='jpn'     > Japanese              </option>
+		<option value='kan'     > Kannada               </option>
+		<option value='kor'     > Korean                </option>
+		<option value='lav'     > Latvian               </option>
+		<option value='lit'     > Lithuanian            </option>
+		<option value='mal'     > Malayalam             </option>
+		<option value='mkd'     > Macedonian            </option>
+		<option value='mlt'     > Maltese               </option>
+		<option value='msa'     > Malay                 </option>
+		<option value='nld'     > Dutch                 </option>
+		<option value='nor'     > Norwegian             </option>
+		<option value='pol'     > Polish                </option>
+		<option value='por'     > Portuguese            </option>
+		<option value='ron'     > Romanian              </option>
+		<option value='rus'     > Russian               </option>
+		<option value='slk'     > Slovakian             </option>
+		<option value='slv'     > Slovenian             </option>
+		<option value='spa'     > Spanish               </option>
+		<option value='spa_old' > Old Spanish           </option>
+		<option value='sqi'     > Albanian              </option>
+		<option value='srp'     > Serbian (Latin)       </option>
+		<option value='swa'     > Swahili               </option>
+		<option value='swe'     > Swedish               </option>
+		<option value='tam'     > Tamil                 </option>
+		<option value='tel'     > Telugu                </option>
+		<option value='tgl'     > Tagalog               </option>
+		<option value='tha'     > Thai                  </option>
+		<option value='tur'     > Turkish               </option>
+		<option value='ukr'     > Ukrainian             </option>
+		<option value='vie'     > Vietnamese            </option>
+		</select>
+		
+
+        
+        
+            <div class="fixed-action-btn vertical click-to-toggle">
+    			<a class="btn-floating btn-large #00B7C3">
+      				<i class="material-icons">add</i>
+   				</a>
+    <ul>
+      <li><a class="btn-floating green" title="Camera"><i class="material-icons">camera_alt</i></a></li>
+      <li><a class="btn-floating blue" title="Upload Files" href="javascript:void(0)" id="upload"><i class="material-icons">file_upload</i></a>
+      <input id="upload-file" type="file" onchange="recognizeFile(window.lastFile=this.files[0])"/>
+      <div id="log"></div>
+      </li>
+    </ul>
+    
+  </div>
+</div>
+
+<script type="text/javascript" src="js/sidenav.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="../../text editor/tinymce/js/tinymce/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
+  <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+<script type="text/javascript" src="js/ocr.js"></script>
+</body>
+
+</html>
