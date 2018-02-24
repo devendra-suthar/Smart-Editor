@@ -37,13 +37,13 @@
 		<select id="langsel" onchange="window.lastFile && recognizeFile(window.lastFile)">
 				<option value='eng'     selected> English       </option>
 		</select>
+		<div id="log"></div>
 
 	<div class="fixed-action-btn vertical click-to-toggle">
 		<a class="btn-floating btn-large #00B7C3">
 			<i class="material-icons">add</i>
 		</a>
 		<ul>
-			<div id="log"></div>
 			<li><a class="btn-floating green" title="Camera"><i class="material-icons">camera_alt</i></a></li>
 			<li><a class="btn-floating blue" title="Upload Files" href="javascript:void(0)" id="upload"><i class="material-icons">file_upload</i></a>
 				<input id="upload-file" type="file" onchange="recognizeFile(window.lastFile=this.files[0])"/>
