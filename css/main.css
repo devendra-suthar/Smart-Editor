@@ -6,6 +6,11 @@
     height: 400px;
 }
 
+#log{
+	color: white;
+	font-size: 12px;
+}
+
 body{
 	background:url(../images/new-background-pictures-2560x1600-WTG004590.jpg);
 	background-size:cover;
