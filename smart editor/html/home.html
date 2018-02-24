@@ -15,8 +15,8 @@
 </head>
 
 <body>
-<div class="header">	
-    	<h5>SMART EDITOR</h5>     
+<div class="header">
+    	<h5>SMART EDITOR</h5>
 </div>
 	<div class="sidenav">
     		<a href="index.html" title="Home"><i class="material-icons">home</i></a>
@@ -30,17 +30,13 @@
                  </div>
            	<a href="index.html" title="Trash"><i class="material-icons">delete</i></a>
         	<a href="index.html" title="Settings"><i class="material-icons">settings</i></a>
-        	<a href="index.html" title="account circle"><i class="material-icons">account_circle</i></a> 
+        	<a href="index.html" title="account circle"><i class="material-icons">account_circle</i></a>
     </div>
     <div class="welcome">
     	<div class="new">
-		<textarea></textarea>
+		<textarea id="output">Hello</textarea>
         </div>
-        
-        <div class="new1">
-        <div id="log"></div>
-        </div>
-        
+
      <select id="langsel" onchange="window.lastFile && recognizeFile(window.lastFile)">
 		<option value='afr'     > Afrikaans             </option>
 		<option value='ara'     > Arabic                </option>
@@ -109,22 +105,22 @@
 		<option value='ukr'     > Ukrainian             </option>
 		<option value='vie'     > Vietnamese            </option>
 		</select>
-		
 
-        
-        
+
+
+
             <div class="fixed-action-btn vertical click-to-toggle">
     			<a class="btn-floating btn-large #00B7C3">
       				<i class="material-icons">add</i>
    				</a>
     <ul>
-      <li><a class="btn-floating green" title="Camera"><i class="material-icons">camera_alt</i></a></li>
-      <li><a class="btn-floating blue" title="Upload Files" href="javascript:void(0)" id="upload"><i class="material-icons">file_upload</i></a>
-      <input id="upload-file" type="file" onchange="recognizeFile(window.lastFile=this.files[0])"/>
-      <div id="log"></div>
-      </li>
+		<div id="log"></div>
+		<li><a class="btn-floating green" title="Camera"><i class="material-icons">camera_alt</i></a></li>
+		<li><a class="btn-floating blue" title="Upload Files" href="javascript:void(0)" id="upload"><i class="material-icons">file_upload</i></a>
+			<input id="upload-file" type="file" onchange="recognizeFile(window.lastFile=this.files[0])"/>
+		</li>
     </ul>
-    
+
   </div>
 </div>
 
@@ -132,8 +128,8 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="../../text editor/tinymce/js/tinymce/tinymce.min.js"></script>
-  <script>tinymce.init({ selector:'textarea' });</script>
-  <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+<script>tinymce.init({ selector:'textarea' });</script>
+<script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
 <script type="text/javascript" src="js/ocr.js"></script>
 </body>
 

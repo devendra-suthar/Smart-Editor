@@ -24,10 +24,7 @@ function progressUpdate(packet){
 
 		if(packet.status == 'done'){
 			var pre = document.createElement('pre')
-			pre.appendChild(document.createTextNode(packet.data.text))
-			line.innerHTML = ''
-			line.appendChild(pre)
-
+			tinymce.activeEditor.execCommand('mceInsertContent', false, packet.data.text)
 		}
 
 		log.insertBefore(line, log.firstChild)
