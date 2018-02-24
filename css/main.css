@@ -1,0 +1,113 @@
+*{margin:0 auto; padding:0px;list-style:none;text-decoration:none; outline:none; border:none; box-sizing:border-box;}
+
+#codeEditor {
+    position: absolute;
+    width: 80%;
+    height: 400px;
+}
+
+body{
+	background:url(../images/new-background-pictures-2560x1600-WTG004590.jpg);
+	background-size:cover;
+	color:#4d4d4e;
+	font-size:8px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+.header{
+	float:left;
+	width:100%;
+	height:60px;
+	background:#099;
+	padding-left:130px;
+	color:white;
+	}
+
+.sidenav{
+	position:fixed;
+	padding-top:120px;
+	width:50px;
+	height:100%;
+	/*left:2%;*/
+	border-right:solid 2px #039;
+	background-color:#4daeb7;
+	margin-top:60px;
+}
+
+.sidenav a{
+	padding:12px 10px 12px 10px;
+	text-decoration:none;
+	font-size:16px;
+	color:#4d4d4e;
+	display:block;
+}
+
+.sidenav .dropdown-btn {
+    padding: 6px 8px 6px 0px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+}
+
+
+.dropdown-container {
+    display: none;
+    background-color:#84c3d6;
+}
+
+#fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+
+
+.welcome{
+	margin-left:130px;
+	margin-right:50px;
+	padding-top:150px;
+	text-align:center;
+}
+
+/*============== text editor =================*/
+
+.mce-branding{color:#FDFDFD!important}
+.mce-branding a{color:#FDFDFD!important}
+
+#mceu_11{
+	height:380px;
+	width:80% !important;
+}
+
+#upload-file{
+    display: none;
+}​
+
+.new{width:50px;}
+.new1{width:20%;}
+/*============================================*/
+
+/*---- responsive ----*/
+@media screen and (max-height: 450px) {
+    .sidenav a {font-size: 12px;}
+	.sidenav .lib a{font-size:8px;}
+}
+
+
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
