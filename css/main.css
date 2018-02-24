@@ -1,8 +1,9 @@
 *{margin:0 auto; padding:0px;list-style:none;text-decoration:none; outline:none; border:none; box-sizing:border-box;}
 
 #codeEditor {
-    position: absolute;
-    width: 70%;
+    position: relative;
+	margin-left: 10px;
+    width: 80%;
     height: 400px;
 }
 
