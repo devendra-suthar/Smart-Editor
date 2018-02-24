@@ -6,9 +6,20 @@
     height: 400px;
 }
 
+progress{
+	width: 200px;
+	padding: 2px;
+	margin: 1px 0px 4px 0px;
+}
+
 #log{
 	color: white;
-	font-size: 12px;
+	font-size: 13px;
+	font-variant-caps: all-petite-caps;
+	position: absolute;
+	width: 210px;
+	margin: -30% auto auto 72%;
+	text-align: left
 }
 
 body{
