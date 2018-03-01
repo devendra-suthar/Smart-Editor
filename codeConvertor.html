@@ -33,7 +33,13 @@
         	<a href="index.html" title="account circle"><i class="material-icons">account_circle</i></a>
     </div>
     <div class="welcome">
-		<div id="codeEditor"></div>
+		<div id="codeEditor">Type any code... (C for testing)</div>
+		
+		<!-- Button for compile and run the code-->
+		<button class="btn red" type="submit" onclick="UserAction()">Compile & Run</button>
+		
+		<!-- Div for displaying the output-->
+		<div id="output" class="card-panel grey lighten-3 red-text lighten-2 left-align">Result appear here</div>
 		<select id="langsel" onchange="window.lastFile && recognizeFile(window.lastFile)">
 				<option value='eng'     selected> English       </option>
 		</select>
@@ -63,6 +69,7 @@
 </script>
 <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
 <script type="text/javascript" src="js/ocr.js"></script>
+<script type="text/javascript" src="js/codecompiler.js"></script>
 </body>
 
 </html>
