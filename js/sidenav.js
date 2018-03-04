@@ -1,3 +1,4 @@
+/*============== sidenav for dashboard ============*/
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
 
@@ -11,4 +12,13 @@ for (i = 0; i < dropdown.length; i++) {
       dropdownContent.style.display = "block";
     }
   });
+}
+
+/*=========== sidenav for progress bar =============*/
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
 }

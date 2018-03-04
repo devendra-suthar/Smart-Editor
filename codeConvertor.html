@@ -9,8 +9,8 @@
 <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://materializecss.com/css/ghpages-materialize.css">
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="http://materializecss.com/css/ghpages-materialize.css">
 
 </head>
 
@@ -32,7 +32,16 @@
         	<a href="index.html" title="Settings"><i class="material-icons">settings</i></a>
         	<a href="index.html" title="account circle"><i class="material-icons">account_circle</i></a>
     </div>
+    <div class="langSel">
+    	<h4>Select language</h4>
+    	<select id="languages" required>
+        	<option value="C" selected> C </option>
+            <option value="C++">C++</option>
+            <option value="Java">Java</option>
+        </select>
+        </div>
     <div class="welcome">
+    	
 		<div id="codeEditor"></div>
 		<select id="langsel" onchange="window.lastFile && recognizeFile(window.lastFile)">
 				<option value='eng'     selected> English       </option>
@@ -53,15 +62,15 @@
 </div>
 
 <script type="text/javascript" src="js/sidenav.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script type="text/javascript" src="plugins/ace/src/ace.js" charset="utf-8"></script>
 <!-- <script src="src/theme-twilight.js" type="text/javascript" charset="utf-8"></script> -->
 <script>
 		var codeEditor = ace.edit("codeEditor");
 		//codeEditor.setTheme("ace/theme/twilight")
 </script>
-<script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+<script src='http://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
 <script type="text/javascript" src="js/ocr.js"></script>
 </body>
 

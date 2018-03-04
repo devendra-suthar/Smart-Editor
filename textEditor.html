@@ -9,8 +9,8 @@
 <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://materializecss.com/css/ghpages-materialize.css">
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="http://materializecss.com/css/ghpages-materialize.css">
 
 </head>
 
@@ -103,7 +103,21 @@
 			</select>
 
 			<textarea class="tinymce" id="textEditor"></textarea>
-			<div id="log"></div>
+	        <div id="log1">
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            	<div id="mySidenav" class="sidenav1">
+  					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+  					
+				</div>
+
+
+
+            </div>
+           
 		<div class="fixed-action-btn vertical click-to-toggle">
 			<a class="btn-floating btn-large #00B7C3">
 				<i class="material-icons">add</i>
@@ -118,15 +132,15 @@
 	</div>
 
 	<script type="text/javascript" src="js/sidenav.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script type="text/javascript" src="plugins/tinymce/tinymce.min.js"></script>
 	<script>tinymce.init({
 			selector: 'textarea',
 			height: 300,
 			menubar: true
 		});</script> -->
-	<script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+	<script src='http://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
 	<script type="text/javascript" src="js/ocr.js"></script>
 </body>
 
