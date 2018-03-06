@@ -29,9 +29,11 @@ function progressUpdate(packet) {
 			else {
 				var pre = document.createElement('pre')
 				pre.appendChild(document.createTextNode(packet.data.text))
-				var editor = document.getElementById('codeEditor')
-				editor.innerHTML = ''
-				editor.appendChild(pre)
+				//var editor = document.getElementById('codeEditor')
+				//editor.innerHTML = ''
+				//editor.appendChild(pre)
+				var codeEditor = ace.edit("codeEditor");
+				codeEditor.setValue(packet.data.text);
 			}
 		}
 
