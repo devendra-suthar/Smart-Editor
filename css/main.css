@@ -13,6 +13,10 @@ progress{
 	margin: 1px 0px 4px 0px;
 }
 
+#log{
+	color: black;
+	padding-left:20px;
+}
 #log1{
 	color: white;
 	font-size: 13px;
