@@ -5,6 +5,10 @@ function UserAction() {
 	
 	//Getting text form the editor
 	var text = editor.getValue();
+	
+	var langOptions = document.getElementById("languages");
+	var language = langOptions.options[langOptions.selectedIndex].value;
+	console.log(language);
     
 	//Forming http request
 	var xhttp = new XMLHttpRequest();
@@ -23,7 +27,7 @@ function UserAction() {
 	//Creating data
 	var data = JSON.stringify({
 		"script":text,
-		"language":"c",
+		"language":language,
 		"versionIndex":"0",
 		"clientId":"69cdf4df5bd85a70a0bade64fbd66ecf",
 		"clientSecret":"f902c22c3cb7549296ea02f72c9de8f81c8b3cec71da0bc86d2f030816214eec"
