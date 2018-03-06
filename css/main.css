@@ -23,10 +23,12 @@ progress{
 	font-variant-caps: all-petite-caps;
 	position: absolute;
 	width: 294px;
-	margin: -31% auto auto 72%;
+	/*margin: -31% auto auto 72%;*/
 	text-align: left;
-	background: white;
-	height: 99%;
+	right:0;
+	top:0;
+	background:#d9e3e4;;
+	height: 100%;
 }
 
 body{
@@ -37,33 +39,25 @@ body{
 	font-family:Verdana, Geneva, sans-serif;
 }
 
-.header{
-	float:left;
-	width:100%;
-	height:60px;
-	background:#099;
-	padding-left:130px;
-	color:white;
-	}
 
 /*============= sidenav for dashboard ======================*/
 .sidenav{
 	position:fixed;
-	padding-top:120px;
-	width:50px;
+	width:17%;
 	height:100%;
 	/*left:2%;*/
 	border-right:solid 2px #039;
-	background-color:#4daeb7;
-	margin-top:60px;
+	background-color:#d9e3e4;
+	padding-top:10px;
 }
 
 .sidenav a{
-	padding:12px 10px 12px 10px;
+	padding:18px 15px 15px 25px;
 	text-decoration:none;
-	font-size:16px;
+	font-size:20px !important;
 	color:#4d4d4e;
 	display:block;
+	
 }
 
 .sidenav .dropdown-btn {
@@ -88,7 +82,7 @@ body{
 
 .dropdown-container {
     display: none;
-    background-color:#84c3d6;
+    background-color:#B1C9D6;
 }
 
 #fa-caret-down {
@@ -96,6 +90,11 @@ body{
     padding-right: 8px;
 }
 
+.bar{
+	margin: -25px 0px 0px 46px;
+	font-family:Roboto,sans-serif;
+	
+}
 /*======================================================*/
 
 .welcome{

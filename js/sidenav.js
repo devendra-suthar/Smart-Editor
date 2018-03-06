@@ -22,3 +22,17 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
+
+/*-------------- funciton for opening differet pages in iframe-------*/
+function openPage(){
+	//var iframe = document.getElementById('openPages');
+	//iframe.src = "textEditor.html";
+	var ifile = "C:\Users\ADMIN\Desktop\se editor\Smart-Editor\textEditor.html";
+	$('#editor').click(function(){
+		$('<iframe>')
+		.attr('src', ifile)
+		.attr('height', 500)
+		.attr('width', 500)
+		.appendTo('#iframe_div');
+		});
+}
