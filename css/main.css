@@ -1,41 +1,8 @@
 *{margin:0 auto; padding:0px;list-style:none;text-decoration:none; outline:none; border:none; box-sizing:border-box;}
 
-#codeEditor {
-    position: relative;
-	  margin-left: 10px;
-    width: 80%;
-    height: 400px;
-}
-
-progress{
-	width: 200px;
-	padding: 2px;
-	margin: 1px 0px 4px 0px;
-}
-
-#log{
-	color: black;
-	padding-left:20px;
-}
-#log1{
-	color: white;
-	font-size: 13px;
-	font-variant-caps: all-petite-caps;
-	position: fixed;
-	width: 294px;
-  padding-top: 30px;
-	/*margin: -31% auto auto 72%;*/
-	text-align: left;
-	right:0;
-	top:0;
-	/*background:#d9e3e4;*/
-  background-color: #f8f8f8;
-	height: 100%;
-}
-
 body{
 	/*background:url(../images/new-background-pictures-2560x1600-WTG004590.jpg);*/
-  background-color: #FFFFFF;
+    background-color: #FFFFFF;
 	background-size:cover;
 	color:#4d4d4e;
 	font-size:8px;
@@ -56,24 +23,10 @@ body{
   -moz-transition: 0.3s;
 }
 
-/*------------- For cards ------------*/
 
-.card-text-content{
-  line-height: 1.5;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-}
 
-.card-width{
-  width: 18% !important;
-  height: 20% !important;
-}
+/*----------- Sidenav for Dashboard ------------*/
 
-/*---------------------------------*/
-
-/*------- Normal padding for buttons-----*/
-
-/*============= sidenav for dashboard ======================*/
 .sidenav{
 	position:fixed;
 	width:17%;
@@ -81,10 +34,10 @@ body{
 	/*left:2%;*/
 	border-right:solid 1px solid #e7e7e7;
 	/*background-color:#d9e3e4;*/
-  background-color: #f8f8f8;
+    background-color: #f8f8f8;
 	padding-top:10px;
-  line-height: 24px;
-  box-sizing: border-box;
+    line-height: 24px;
+    box-sizing: border-box;
 }
 
 .sidenav a{
@@ -135,8 +88,50 @@ body{
 	margin: -25px 0px 0px 46px;
 	font-family:Roboto,sans-serif;
 }
-/*======================================================*/
 
+/*----------- ****************** ---------*/
+
+/*---------- Sidenav for Progress bar --------*/
+
+progress{
+	width: 200px;
+	padding: 2px;
+	margin: 1px 0px 4px 0px;
+}
+
+#log1{
+	color: white;
+	font-size: 13px;
+	font-variant-caps: all-petite-caps;
+	position: fixed;
+	width: 294px;
+    padding-top: 30px;
+	text-align: left;
+	right:0;
+	top:0;
+    background-color: #f8f8f8;
+	height: 100%;
+}
+
+
+/*----------- ****************** ---------*/
+
+/*------------ For cards -------------*/
+
+.card-text-content{
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+.card-width{
+  width: 18% !important;
+  height: 20% !important;
+}
+
+/*----------- ****************** ---------*/
+
+/*------------ Common classes of different Editor -------------*/
 .welcome{
 	margin-left:17%;
 	margin-right:50px;
@@ -149,71 +144,19 @@ body{
   margin-bottom: 15px;
 }
 
-.header{
-  font-size: 24px;
+.select-show{
+  display: block;
+  color:#fff;
+  width: 77%;
+  margin-bottom: 10px;
+  font-size:17px;
   font-family:Roboto,sans-serif;
-  margin:0;
-  color: #000;
-  line-height: 1.42857143;
-  padding: 27px 30px 7px 50px;
-  height: 46px;
 }
 
-/*============== text editor =================*/
-
-.mce-branding{color:#FDFDFD!important}
-.mce-branding a{color:#FDFDFD!important}
-
-#mceu_11{
-	height:400px;
-	width:80% !important;
+.blue.lighten-1{
+	margin-top:10px;	
 }
 
-#upload-file{
-    display: none;
-}​
-
-
-/*============================================*/
-
-/*=============== sidenav for progress bar =====================*/
-
-.log1 .sidenav1 {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav1 a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav1 a:hover {
-    color: #000;
-}
-
-.sidenav1 .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-
-/*============================================*/
 .langSel{
 	width:100%;
 	text-align:left;
@@ -231,23 +174,59 @@ body{
 		display:inline !important;
 }
 
-#codeEditor{margin-top:-140px;}
-
-
-.select-show{
-  display: block;
-  width: 80%;
-  margin-bottom: 10px;
+.header{
+  font-size: 27px;
+  font-family:Roboto,sans-serif;
+  margin:0;
+  color: #000;
+  line-height: 1.42857143;
+  padding: 22px 24px 7px 205px;
+  height: 46px;
 }
-/*---- responsive ----*/
+
+
+/*----------- ****************** ---------*/
+
+/*------------ Text Editor -------------*/
+
+#log{
+	color: black;
+	padding-left:20px;
+}
+
+.mce-branding{color:#FDFDFD!important}
+.mce-branding a{color:#FDFDFD!important}
+
+#mceu_11{
+	height:400px;
+	width:77% !important;
+}
+
+#upload-file{
+    display: none;
+}​
+/*----------- ****************** ---------*/
+
+/*------------ Code Editor -------------*/
+#codeEditor {
+    position: relative;
+	margin-left: 0px;
+    width: 77%;
+    height: 400px;
+	margin-top:-66px;
+}
+
+/*----------- ****************** ---------*/
+
+/*--------- responsive -----------*/
 @media screen and (max-height: 450px) {
     .sidenav a {font-size: 12px;}
 	.sidenav .lib a{font-size:8px;}
 }
 
-
-
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
+
+/*----------- ****************** ---------*/
