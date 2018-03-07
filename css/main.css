@@ -1,5 +1,20 @@
 *{margin:0 auto; padding:0px;list-style:none;text-decoration:none; outline:none; border:none; box-sizing:border-box;}
 
+/*--------------- Index -----------------------
+
+1) General
+2) Sidenav for Dashboard
+3) Sidenav for Progress bar
+4) For cards
+5) Common classes of different Editor
+6) Text Editor
+7) Code Editor
+8) Responsive
+
+----------- ****************** ---------*/
+
+/*--------------- General -----------------------*/
+
 body{
 	/*background:url(../images/new-background-pictures-2560x1600-WTG004590.jpg);*/
     background-color: #FFFFFF;
@@ -8,6 +23,15 @@ body{
 	font-size:8px;
 	font-family:Verdana, Geneva, sans-serif;
 }
+
+/*--- header files -----*/
+h1{
+	font-size:6vw;
+}
+h2{
+	font-size:6nw;
+}
+/*----- ********** ------*/
 
 .custom-button{
   background: #f44336;
@@ -23,7 +47,7 @@ body{
   -moz-transition: 0.3s;
 }
 
-
+/*----------- ****************** ---------*/
 
 /*----------- Sidenav for Dashboard ------------*/
 
