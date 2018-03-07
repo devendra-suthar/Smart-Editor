@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Editor</title>
 <link href="css/index.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/login.js"></script>
 </head>
 
 <body>
@@ -15,11 +14,11 @@
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
 <div id="id01" class="modal">
-  
+
   <form class="modal-content animate" action="/action_page.php">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      
+
     </div>
 
     <div class="container">
@@ -28,7 +27,7 @@
 
       <label for="psw" style="float:left; font-size:11px;padding-left: 10px;"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
-        
+
       <button type="submit">Login</button>
       <!--<label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -36,11 +35,14 @@
     </div>
 
     <div class="container" style="background-color:#f1f1f1; text-align:left;">
-      <button type="button" class="SignIn">Sign In with Google</button>
+      <button type="button" class="SignIn" onclick="logIn();">Sign In with Google</button>
       <span class="psw" style="font-size:12px;">Forgot <a href="#">password?</a></span>
     </div>
   </form>
-</div>																																									
 </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 </body>
 </html>

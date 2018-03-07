@@ -12,7 +12,8 @@
 
 </head>
 
-<body>
+<body onload="getDetails();">
+			<div class="col s3">
 	<div class="sidenav">
     		<h4 style="border-bottom:1px solid #e7e7e7; padding-bottom:18px;"><i class="material-icons">grade</i>Smart Editor</h4>
     		<a href="index.html" title="Home"><i class="material-icons">home</i><pre class="bar">Home</pre></a>
@@ -21,16 +22,19 @@
   				<div class="dropdown-container">
 
 					<a href="" title="notes"><i class="material-icons">note</i><pre class="bar">Notes</pre></a>
-					<a href="" id="editor" title="editor" onclick="openPage();"><i class="material-icons">border_color</i><pre class="bar">Editor</pre></a>
+					<a href="textEditor.html" id="editor" title="editor" onclick="openPage();"><i class="material-icons">border_color</i><pre class="bar">Editor</pre></a>
 					<a href="codeConvertor.html" title="Code Convertor"><i class="material-icons">code</i><pre class="bar">Code Convertor</pre></a>
 					<!--<a href="" title="Translator"><i class="material-icons">translate</i>TRANSLATOR</a>-->
 				</div>
            	<a href="" title="Trash"><i class="material-icons">delete</i><pre class="bar">Delete</pre></a>
         	<a href="" title="Settings"><i class="material-icons">settings</i><pre class="bar">Settings</pre></a>
         	<a href="" title="account circle"><i class="material-icons">account_circle</i><pre class="bar">Account</pre></a>
+					<a href="" title="account circle" onclick="logOut();"><i class="material-icons">add</i><pre class="bar">Log-Out</pre></a>
     </div>
+	</div>
+	<div class="col s6">
     <div class="welcome">
-	<h1 class="header">Welcome to Smart Editor</h1>
+	<h1 class="header" id="details">Welcome to Smart Editor</h1>
 	</div>
 
 	<!-- Code for displaying card -->
@@ -64,12 +68,16 @@
 			<!-- Code for second card ends here -->
     </div>
 		<!-- Code for card ends here -->
-
+</div>
 	<!-- div for displaying progress bar -->
-    <div id="log1">
+<div class="col s3">
+	  <div id="log1">
     </div>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/sidenav.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 </body>
