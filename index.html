@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Editor</title>
 <link href="css/index.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -21,23 +22,25 @@
 
     </div>
 
-    <div class="container">
-      <label for="uname" style="float:left; font-size:11px;padding-left:10px;"><b>Username</b></label>
+    <div class="container" style="background-color:#f1f1f1;">
+      <!--<label for="uname" style="float:left; font-size:11px;padding-left:10px;"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="uname" required>
 
       <label for="psw" style="float:left; font-size:11px;padding-left: 10px;"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
 
       <button type="submit">Login</button>
-      <!--<label>
+      <!- <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>-->
+
+			<button type="button" class="SignIn custom-button" onclick="logIn();">Sign In with Google</button>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1; text-align:left;">
+    <!-- <div class="container" style="background-color:#f1f1f1; text-align:left;">
       <button type="button" class="SignIn" onclick="logIn();">Sign In with Google</button>
       <span class="psw" style="font-size:12px;">Forgot <a href="#">password?</a></span>
-    </div>
+    </div>-->
   </form>
 </div>
 </div>
