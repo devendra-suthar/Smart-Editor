@@ -2,7 +2,7 @@
 
 #codeEditor {
     position: relative;
-	margin-left: 10px;
+	  margin-left: 10px;
     width: 80%;
     height: 400px;
 }
@@ -21,24 +21,45 @@ progress{
 	color: white;
 	font-size: 13px;
 	font-variant-caps: all-petite-caps;
-	position: absolute;
+	position: fixed;
 	width: 294px;
 	/*margin: -31% auto auto 72%;*/
 	text-align: left;
 	right:0;
 	top:0;
-	background:#d9e3e4;;
+	/*background:#d9e3e4;*/
+  background-color: #f8f8f8;
 	height: 100%;
 }
 
 body{
-	background:url(../images/new-background-pictures-2560x1600-WTG004590.jpg);
+	/*background:url(../images/new-background-pictures-2560x1600-WTG004590.jpg);*/
+  background-color: #FFFFFF;
 	background-size:cover;
 	color:#4d4d4e;
 	font-size:8px;
 	font-family:Verdana, Geneva, sans-serif;
 }
 
+/*------------- For cards ------------*/
+
+.card-text-content{
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+.card-width{
+  width: 18% !important;
+  height: 20% !important;
+}
+
+
+
+
+
+
+/*---------------------------------*/
 
 /*============= sidenav for dashboard ======================*/
 .sidenav{
@@ -46,18 +67,23 @@ body{
 	width:17%;
 	height:100%;
 	/*left:2%;*/
-	border-right:solid 2px #039;
-	background-color:#d9e3e4;
+	border-right:solid 1px solid #e7e7e7;
+	/*background-color:#d9e3e4;*/
+  background-color: #f8f8f8;
 	padding-top:10px;
+  line-height: 24px;
+  box-sizing: border-box;
 }
 
 .sidenav a{
 	padding:18px 15px 15px 25px;
-	text-decoration:none;
+	font-family:Roboto,sans-serif;
 	font-size:20px !important;
-	color:#4d4d4e;
+	color:#2b313f;
 	display:block;
-	
+  font-weight: 400;
+  border-bottom: 1px solid #e7e7e7;
+
 }
 
 .sidenav .dropdown-btn {
@@ -76,7 +102,9 @@ body{
 
 /* On mouse-over */
 .sidenav a:hover, .dropdown-btn:hover {
-    color: #f1f1f1;
+    /*color: #f1f1f1;*/
+    color: #fff;
+    background-color: #b7bbc4;
 }
 
 
@@ -93,15 +121,27 @@ body{
 .bar{
 	margin: -25px 0px 0px 46px;
 	font-family:Roboto,sans-serif;
-	
 }
 /*======================================================*/
 
 .welcome{
-	margin-left:130px;
+	margin-left:17%;
 	margin-right:50px;
-	padding-top:150px;
-	text-align:center;
+  background-color: #fff;
+  color: #fff;
+  position: relative;
+  height: 84px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.header{
+  font-size: 24px;
+  font-family:Roboto,sans-serif;
+  margin:0;
+  color: #000;
+  line-height: 1.42857143;
+  padding: 27px 30px 7px 50px;
+  height: 46px;
 }
 
 /*============== text editor =================*/
@@ -161,7 +201,7 @@ body{
 /*============================================*/
 .langSel{
 	width:100%;
-	text-align:left;	
+	text-align:left;
 	padding:60px 0px 0px 165px;
 	}
 
