@@ -11,7 +11,7 @@ window.onclick = function(event) {
 function logIn(){
   var provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
-  window.location.assign("home.html");
+  window.location = "home.html";
   // This gives you a Google Access Token. You can use it to access the Google API.
   var token = result.credential.accessToken;
   // The signed-in user info.
@@ -39,7 +39,7 @@ function logOut(){
   //firebase.auth().signOut();
   firebase.auth().signOut().then(function() {
   // Sign-out successful.
-  window.location.assign("index.html");
+  window.location = "index.html";
   console.log("Signed out");
 }).catch(function(error) {
   // An error happened.
@@ -61,7 +61,7 @@ function getDetails(){
 
     } else {
       // No user is signed in.
-      window.location.assign("index.html");
+      window.location = "index.html";
       console.log("Not signed in");
     }
   });
