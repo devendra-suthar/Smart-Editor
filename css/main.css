@@ -23,6 +23,7 @@ progress{
 	font-variant-caps: all-petite-caps;
 	position: fixed;
 	width: 294px;
+  padding-top: 30px;
 	/*margin: -31% auto auto 72%;*/
 	text-align: left;
 	right:0;
@@ -54,12 +55,9 @@ body{
   height: 20% !important;
 }
 
-
-
-
-
-
 /*---------------------------------*/
+
+/*------- Normal padding for buttons-----*/
 
 /*============= sidenav for dashboard ======================*/
 .sidenav{
@@ -98,6 +96,7 @@ body{
     text-align: left;
     cursor: pointer;
     outline: none;
+    border-bottom: 1px solid #e7e7e7;
 }
 
 /* On mouse-over */
@@ -110,7 +109,7 @@ body{
 
 .dropdown-container {
     display: none;
-    background-color:#B1C9D6;
+    background-color:#e9e9e9;
 }
 
 #fa-caret-down {
@@ -131,7 +130,9 @@ body{
   color: #fff;
   position: relative;
   height: 84px;
+  text-align: left;
   border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 15px;
 }
 
 .header{
@@ -150,7 +151,7 @@ body{
 .mce-branding a{color:#FDFDFD!important}
 
 #mceu_11{
-	height:380px;
+	height:400px;
 	width:80% !important;
 }
 
@@ -202,7 +203,7 @@ body{
 .langSel{
 	width:100%;
 	text-align:left;
-	padding:60px 0px 0px 165px;
+	margin:50px 0px 0px 50px;
 	}
 
 .langSel h4{
@@ -219,6 +220,11 @@ body{
 #codeEditor{margin-top:-140px;}
 
 
+.select-show{
+  display: block;
+  width: 80%;
+  margin-bottom: 10px;
+}
 /*---- responsive ----*/
 @media screen and (max-height: 450px) {
     .sidenav a {font-size: 12px;}
