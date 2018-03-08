@@ -58,18 +58,18 @@ function loginWithEmail(){
     //document.getElementById("user_div").style.display = "block";
     //ocument.getElementById("login_div").style.display = "none";
 
-    //var user = firebase.auth().currentUser;
+    var user = firebase.auth().currentUser;
 
-    //if(user != null){
+    if(user != null){
 
-      //var email_id = user.email;
-      //document.getElementById("details").innerHTML = "Welcome User : " + email_id;
+      var email_id = user.email;
+      document.getElementById("details").innerHTML = "Welcome User : " + email_id;
 
     }
 
   } else {
     // No user is signed in.
-                                       window.location = "index.html";
+                                       //window.location = "index.html";
 
     //document.getElementById("user_div").style.display = "none";
     //document.getElementById("login_div").style.display = "block";
