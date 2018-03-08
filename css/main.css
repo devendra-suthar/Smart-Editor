@@ -12,6 +12,13 @@
 8) Responsive
 
 ----------- ****************** ---------*/
+#codeEditor {
+    position: relative;
+	margin-left: 0px;
+    width: 77%;
+    height: 400px;
+	margin-top:-66px;
+}
 
 /*--------------- General -----------------------*/
 
@@ -218,13 +225,7 @@ progress{
 /*----------- ****************** ---------*/
 
 /*------------ Code Editor -------------*/
-#codeEditor {
-    position: relative;
-	margin-left: 0px;
-    width: 77%;
-    height: 400px;
-	margin-top:-66px;
-}
+
 
 /*----------- ****************** ---------*/
 
