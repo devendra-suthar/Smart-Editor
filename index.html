@@ -23,12 +23,12 @@
 
     <div class="container" style="background-color:#f1f1f1;">
       <label for="uname" style="float:left; font-size:11px;padding-left:10px;"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input id="email_field" type="text" placeholder="Enter Username" name="uname" required>
 
       <label for="psw" style="float:left; font-size:11px;padding-left: 10px;"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input id="password_field" type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login</button>
+      <button type="submit" onclick="loginWithEmail();">Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
