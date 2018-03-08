@@ -65,8 +65,9 @@ h2{
 	display:block;
   font-weight: 400;
   border-bottom: 1px solid #e7e7e7;
-
 }
+
+.sidenav .active{color:#9E7349;}
 
 .sidenav .dropdown-btn {
     padding: 6px 8px 6px 0px;
@@ -101,10 +102,43 @@ h2{
     padding-right: 8px;
 }
 
-.bar{
-	margin: -25px 0px 0px 46px;
+.text{
+	margin: -35px 0px 0px 35px;
 	font-family:Roboto,sans-serif;
 }
+
+
+@media only screen and (max-width : 860px){
+  
+  .text{
+    display:none;
+	visibility:hidden;
+  }
+  
+  .sidenav, a{
+    width: 70px;
+    
+  }
+   
+  a:hover{
+    width:70px; 
+    z-index:1;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid black;
+    box-shadow: 0 0 1px 1px black;
+  }
+  
+  a:hover  .text {
+    display:block;
+    padding-left:20%;
+  }
+}
+
+@media only screen and (max-width : 480px){
+  .sidenav, a{ width:60px;}
+  span[class ^= "icon"]{ left:4px;}
+}
+
 
 /*----------- ****************** ---------*/
 
@@ -114,20 +148,6 @@ progress{
 	width: 200px;
 	padding: 2px;
 	margin: 1px 0px 4px 0px;
-}
-
-#log1{
-	color: white;
-	font-size: 13px;
-	font-variant-caps: all-petite-caps;
-	position: fixed;
-	width: 294px;
-    padding-top: 30px;
-	text-align: left;
-	right:0;
-	top:0;
-    background-color: #f8f8f8;
-	height: 100%;
 }
 
 
@@ -142,7 +162,7 @@ progress{
 }
 
 .card-width{
-  width: 18% !important;
+  width: 25% !important;
   height: 20% !important;
 }
 
@@ -150,12 +170,10 @@ progress{
 
 /*------------ Common classes of different Editor -------------*/
 .welcome{
-	margin-left:17%;
-	margin-right:50px;
   background-color: #fff;
   color: #fff;
   position: relative;
-  height: 84px;
+  height: 73px;
   text-align: left;
   border-bottom: 1px solid #e7e7e7;
   margin-bottom: 15px;
@@ -164,7 +182,7 @@ progress{
 .select-show{
   display: block;
   color:#fff;
-  width: 77%;
+  width: 100%;
   margin-bottom: 10px;
   font-size:17px;
   font-family:Roboto,sans-serif;
@@ -201,6 +219,20 @@ progress{
   height: 46px;
 }
 
+#log1{
+	color: white;
+	font-size: 13px;
+	font-variant-caps: all-petite-caps;
+	position: fixed;
+	width: 17%;;
+    padding-top: 30px;
+	text-align: left;
+	right:0;
+	top:0;
+    background-color: #f8f8f8;
+	height: 100%;
+}
+
 
 /*----------- ****************** ---------*/
 
@@ -216,7 +248,7 @@ progress{
 
 #mceu_11{
 	height:400px;
-	width:77% !important;
+	width:100% !important;
 }
 
 #upload-file{
@@ -224,8 +256,7 @@ progress{
 }​
 /*----------- ****************** ---------*/
 
-/*------------ Code Editor -------------*/
-
+/*------------ Home -------------*/
 
 /*----------- ****************** ---------*/
 
@@ -240,4 +271,25 @@ progress{
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
+@media only screen and (max-width : 860px){
+	.container{
+		width:100%; 
+	}
+	#log1{width:70px;}
+	.welcome{width:100%; !important}
+	.select-show{width:100%; !important}
+}
+@media only screen and (max-width : 480px){
+	.container{
+		width:100%; 
+	}
+	#log1{width:40px;}
+	.row{
+		margin-left:-12.75rem !important;
+	}
+	.welcome{width:100%; !important}
+	.select-show{width:100%; !important}
+		
+}
 /*----------- ****************** ---------*/
+

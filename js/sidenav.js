@@ -14,6 +14,7 @@ for (i = 0; i < dropdown.length; i++) {
   });
 }
 
+
 /*=========== sidenav for progress bar =============*/
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
