@@ -80,7 +80,9 @@
            	    <option value="java">Java</option>
    		     </select>
 		
-           	 <div id="codeEditor" style="width:100%;">Your code...</div>
+				<div id="codeEditor" style="width:100%;">Your code...</div>
+				<a href="#!" class="btn blue lighten-1 waves-effect waves-light" onclick="writeUserData();"><i class="material-icons left">save</i>Save</a>
+				<a href="#!" class="btn blue lighten-1 waves-effect waves-light" onclick="setContentInEditor();"><i class="material-icons left">save</i>Re-load the data</a>
 			 <!-- Button for compile and run the code-->
         	 <button class="btn red" style="margin-top:10px;margin-left:10px;" type="submit" onclick="makeCorsRequest()">Compile & Run</button>
 		 	 <!-- Div for displaying the output-->
@@ -112,7 +114,6 @@
 
   <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/sidenav.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -126,6 +127,7 @@
 <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
 <script type="text/javascript" src="js/ocr.js"></script>
 <script type="text/javascript" src="js/codecompiler.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 </body>
 
 </html>
