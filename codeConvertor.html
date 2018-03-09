@@ -12,7 +12,7 @@
 </head>
 
 <body onload="getDetails();">
-  
+  <div class="col s3">
 	<div class="sidenav">
     		<a style="background:#f8f8f8; color:black;">
             	<span class="icon-home"><i class="material-icons">grade</i></span>
@@ -65,12 +65,13 @@
             </a>
             
 	</div>
-    
+ </div>
+<div class="col s6">   
     <div class="container" style="width:66%;">
     <div class="welcome">
 		<h1 class="header" id="details">Welcome to Code Convertor</h1>
 	</div>
-
+	<div class="welcome">
   <!--<div style="width:79.5%;margin-left:17%;margin-right:50px;">-->
     	<h5 style="color:#000; font-size:22px; line-height:110%; margin: 0px 13px 10px 10px;">Select language</h5>
     	<select id="languages" class="select-show blue darken-2 left" required>
@@ -91,8 +92,10 @@
 		<select id="langsel" onchange="window.lastFile && recognizeFile(window.lastFile)">
 				<option value='eng'     selected> English       </option>
 		</select>
-
 </div>
+</div>
+</div>
+<div class="col s6">
     <div id="log1">
 		<div id="log"></div>
   </div>
@@ -107,7 +110,7 @@
 			</li>
 		</ul>
 	</div>
-
+</div>
   <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/login.js"></script>

@@ -116,12 +116,12 @@ h2{
   }
   
   .sidenav, a{
-    width: 70px;
-    
+   /* width: 70px;
+    text-align:center;*/
   }
    
   a:hover{
-    width:70px; 
+    /*width:70px; */
     z-index:1;
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid black;
@@ -130,13 +130,14 @@ h2{
   
   a:hover  .text {
     display:block;
-    padding-left:20%;
+    /*padding-left:20%;*/
   }
 }
 
 @media only screen and (max-width : 480px){
-  .sidenav, a{ width:60px;}
-  span[class ^= "icon"]{ left:4px;}
+  /*.sidenav, a{ width:60px;}*/
+  .sidenav .lib a{font-size:8px;}
+  /*span[class ^= "icon"]{ left:4px;}*/
 }
 
 
@@ -162,7 +163,7 @@ progress{
 }
 
 .card-width{
-  width: 25% !important;
+  width: 30% !important;
   height: 20% !important;
 }
 
@@ -213,10 +214,11 @@ progress{
   font-size: 27px;
   font-family:Roboto,sans-serif;
   margin:0;
+  text-align:center;
   color: #000;
   line-height: 1.42857143;
-  padding: 22px 24px 7px 205px;
   height: 46px;
+  padding-top:17px;
 }
 
 #log1{
@@ -231,6 +233,7 @@ progress{
 	top:0;
     background-color: #f8f8f8;
 	height: 100%;
+	overflow:scroll;
 }
 
 
@@ -258,13 +261,10 @@ progress{
 
 /*------------ Home -------------*/
 
+
 /*----------- ****************** ---------*/
 
 /*--------- responsive -----------*/
-@media screen and (max-height: 450px) {
-    .sidenav a {font-size: 12px;}
-	.sidenav .lib a{font-size:8px;}
-}
 
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
@@ -272,23 +272,53 @@ progress{
 .material-icons.md-48 { font-size: 48px; }
 
 @media only screen and (max-width : 860px){
-	.container{
-		width:100%; 
+	/*.container{
+		width:83% !important; 
 	}
-	#log1{width:70px;}
-	.welcome{width:100%; !important}
-	.select-show{width:100%; !important}
+	#log1{
+		width:70px;
+	}
+	.welcome{
+		width:83% !important;
+	}*/
+	
+	.header{
+		font-size:24px;	
+	}
+	/*.select-show{
+		width:100% !important;
+	}*/
+	
+	.card-text-content{
+  		font-size: 12px;
+	}
+	
 }
 @media only screen and (max-width : 480px){
-	.container{
-		width:100%; 
+	/*.container{
+		width:90% !important; 
 	}
-	#log1{width:40px;}
+	#log1{
+		width:40px;
+	}
 	.row{
 		margin-left:-12.75rem !important;
 	}
-	.welcome{width:100%; !important}
-	.select-show{width:100%; !important}
+	/*.welcome{
+		width:90% !important;
+	}*/
+	
+	.header{
+		font-size:18px;	
+	}
+	/*.select-show{
+		width:100% !important;
+	}*/
+	
+	.card-text-content{
+  		font-size: 8px;
+	}
+	
 		
 }
 /*----------- ****************** ---------*/
