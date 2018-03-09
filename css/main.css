@@ -233,7 +233,7 @@ progress{
 	top:0;
     background-color: #f8f8f8;
 	height: 100%;
-	overflow:scroll;
+	/*overflow:scroll;*/
 }
 
 
@@ -259,10 +259,8 @@ progress{
 }​
 /*----------- ****************** ---------*/
 
-/*------------ Home -------------*/
 
 
-/*----------- ****************** ---------*/
 
 /*--------- responsive -----------*/
 
@@ -272,53 +270,21 @@ progress{
 .material-icons.md-48 { font-size: 48px; }
 
 @media only screen and (max-width : 860px){
-	/*.container{
-		width:83% !important; 
-	}
-	#log1{
-		width:70px;
-	}
-	.welcome{
-		width:83% !important;
-	}*/
-	
 	.header{
 		font-size:24px;	
 	}
-	/*.select-show{
-		width:100% !important;
-	}*/
-	
 	.card-text-content{
   		font-size: 12px;
 	}
 	
 }
 @media only screen and (max-width : 480px){
-	/*.container{
-		width:90% !important; 
-	}
-	#log1{
-		width:40px;
-	}
-	.row{
-		margin-left:-12.75rem !important;
-	}
-	/*.welcome{
-		width:90% !important;
-	}*/
-	
 	.header{
 		font-size:18px;	
 	}
-	/*.select-show{
-		width:100% !important;
-	}*/
-	
 	.card-text-content{
   		font-size: 8px;
 	}
-	
 		
 }
 /*----------- ****************** ---------*/
