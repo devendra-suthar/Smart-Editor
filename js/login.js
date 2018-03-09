@@ -214,10 +214,21 @@ function totalFilesCount(user_id){
 }
 
 /**
- * Method to save file contents to firebase
+ * Helper method to distinguish between textEditor and codeConvertor
  * @param {Current user id} user_id 
  */
 function saveFileContents(user_id){
+  if(window.location.href.includes("codeConvertor.html")){
+    saveFileContentsFromCode(user_id);
+  }else{
+    saveFileContentsFromText(user_id);
+  }
+}
+/**
+ * Method to save file contents to firebase
+ * @param {Current user id} user_id 
+ */
+function saveFileContentsFromText(user_id){
   var fileNo = "/file1";
 
   /**
@@ -226,7 +237,26 @@ function saveFileContents(user_id){
     var contents = toGetContents();
 
 //Storing Files table in firebase
-firebase.database().ref('Files/' + user_id + fileNo).set({
+firebase.database().ref('Files/' + '/TextEditor/' + user_id +  fileNo).set({
+  filecontent: contents,
+  shared: true
+});
+
+}
+/**
+ * Method to save file contents to firebase
+ * @param {Current user id} user_id 
+ */
+function saveFileContentsFromCode(user_id){
+  var fileNo = "/file1";
+
+  /**
+   * Getting contents from the editor
+   */
+    var contents = toGetContents();
+
+//Storing Files table in firebase
+firebase.database().ref('Files/' + '/CodeConvertor/' + user_id +  fileNo).set({
   filecontent: contents,
   shared: true
 });
@@ -241,10 +271,13 @@ function setContentInEditor(){
   var user_id = user.uid;
   var fileNo = '/file1';
   
-  //Fetching file contents
-  var fetchContent = fetchFileContents(user_id, fileNo);
+  if(window.location.href.includes("codeConvertor")){
+    //Fetching file contents
+  var fetchContent = fetchFileContentsFromCode(user_id, fileNo);
   //console.log(fetchContent);
-  
+  }else{
+    fetchFileContentsFromText(user_id, fileNo);
+  }
 }
 
 /**
@@ -252,9 +285,9 @@ function setContentInEditor(){
  * @param {user id} user_id 
  * @param {file which to download} fileNo 
  */
-function fetchFileContents(user_id, fileNo){
+function fetchFileContentsFromText(user_id, fileNo){
   var fileContents;
-  var ref = firebase.database().ref('Files/' + user_id + fileNo);
+  var ref = firebase.database().ref('Files/' + '/TextEditor/' + user_id +  fileNo);
 
   ref.once("value", function(snapshot) {
 
@@ -262,14 +295,42 @@ function fetchFileContents(user_id, fileNo){
 
     fileContents = snapshot.val().filecontent;
 
-    //Temporary fix to display text in code convertor
-  /**
-  * Setting the downloaded contents back to editor
-  */
- var editor = ace.edit("codeEditor");
-	
- //Setting text back to the editor
- editor.setValue(fileContents);
+    //Temporary fix to display in textEditor
+    tinymce.get("textEditor").setContent(fileContents);
+    
+    console.log(fileContents);
+  
+  }, function (error) {
+    console.log("Error: " + error.code);
+  });
+
+  return fileContents;
+}
+
+/**
+ * Method to fetch contents of file from the firebase
+ * @param {user id} user_id 
+ * @param {file which to download} fileNo 
+ */
+function fetchFileContentsFromCode(user_id, fileNo){
+  var fileContents;
+  var ref = firebase.database().ref('Files/' + '/CodeConvertor/' + user_id +  fileNo);
+
+  ref.once("value", function(snapshot) {
+
+    console.log(snapshot.val());
+
+    fileContents = snapshot.val().filecontent;
+
+     //Temporary fix to display text in code convertor
+     /**
+     * Setting the downloaded contents back to editor
+     */
+      var editor = ace.edit("codeEditor");
+        
+      //Setting text back to the editor
+      editor.setValue(fileContents);
+    
     console.log(fileContents);
   
   }, function (error) {
@@ -284,6 +345,7 @@ function fetchFileContents(user_id, fileNo){
  */
 function toGetContents(){
   var url = window.location.href;
+  var text;
   console.log(url);
 
   if(url.includes("codeConvertor")){
@@ -291,11 +353,13 @@ function toGetContents(){
 	var editor = ace.edit("codeEditor");
 	
 	//Getting text form the editor
-  var text = editor.getValue();
+  text = editor.getValue();
   
   return text;
   }else{
-    console.log("TextEditor");
-    return null;
+    //var textEditor = document.getElementById('textEditor');
+    text = tinymce.get("textEditor").getContent({format: 'raw'});
+    console.log(text);
+    return text;
   }
 }
