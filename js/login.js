@@ -8,18 +8,17 @@ window.onclick = function(event) {
     }
 }
 
+/**
+ * Method to log in user with Google Sign On
+ */
 function logIn(){
   var provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
-  window.location = "home.html";
-  // This gives you a Google Access Token. You can use it to access the Google API.
+    window.location = "home.html";
+    // This gives you a Google Access Token. You can use it to access the Google API.
   var token = result.credential.accessToken;
   // The signed-in user info.
-  var user = result.user;
-  console.log(user.email);
-  console.log(user.displayName);
-  window.console.log(user);
-
+  var user = result.user;  
   //var details = document.getElementById("details");
   //details.innerHTML = user.displayName;
   // ...
@@ -35,6 +34,9 @@ function logIn(){
 });
 }
 
+/**
+ * Method to login for user with email and password
+ */
 function loginWithEmail(){
 
   var userEmail = document.getElementById("email_field").value;
@@ -52,7 +54,7 @@ function loginWithEmail(){
     
     firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-      window.location = "home.html";
+      window.console.log(user);
     // User is signed in.
 
     //document.getElementById("user_div").style.display = "block";
@@ -63,13 +65,14 @@ function loginWithEmail(){
     if(user != null){
 
       var email_id = user.email;
+      window.location = "home.html";
       document.getElementById("details").innerHTML = "Welcome User : " + email_id;
 
     }
 
   } else {
     // No user is signed in.
-                                       //window.location = "index.html";
+    //window.location = "index.html";
 
     //document.getElementById("user_div").style.display = "none";
     //document.getElementById("login_div").style.display = "block";
@@ -80,6 +83,9 @@ function loginWithEmail(){
 
 }
 
+/**
+ * Method to sign out the user
+ */
 function logOut(){
   //firebase.auth().signOut();
   firebase.auth().signOut().then(function() {
@@ -91,6 +97,9 @@ function logOut(){
 });
 }
 
+/**
+ * Method to get details of current user
+ */
 function getDetails(){
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -98,10 +107,12 @@ function getDetails(){
       var user = firebase.auth().currentUser;
 
       if(user != null){
-        console.log("Signed In");
+        var user_id = user.uid;
         var email_id = user.email;
         var name = user.displayName;
         document.getElementById("details").innerHTML = "Welcome User : " + email_id;
+        console.log(user_id);
+        console.log("Signed In");
       }
 
     } else {
@@ -110,4 +121,181 @@ function getDetails(){
       console.log("Not signed in");
     }
   });
+}
+
+/*function createUserTable(){
+  //Accessing current user
+  var user = firebase.auth().currentUser;
+  var user_id = user.uid;
+  var name = user.displayName;
+  var user_email = user.email;
+
+  //Storing data in firebase
+  firebase.database().ref('users/' + user_id).set({
+    username: name,
+    email: user_email,
+    filesUser: false,
+    totalfiles: 0
+  });
+  console.log("Data saved");
+}*/
+
+/**
+ * Method to store data in firebase
+ */
+function writeUserData() {
+
+  //Create user data
+  //createUserTable();
+  //Accessing current user
+  var user = firebase.auth().currentUser;
+  var user_id = user.uid;
+  var name = user.displayName;
+  var user_email = user.email;
+
+
+  //var updatedTotalFileCount = totalFileCount + 1;
+//Storing Files table in firebase
+firebase.database().ref('users/' + user_id).set({
+  username: name,
+  email: user_email,
+  filesUser: true,
+  totalfiles: 1
+});
+
+  //Finding whether user has saved any file or not
+  var filesUser = userHasFile(user_id);
+
+  //Finding tota no of files saved by user
+  var totalFileCount = totalFilesCount(user_id);
+  saveFileContents(user_id);
+
+  console.log("Data Saved");
+  //console.log(fileContentsValue);
+}
+
+/* Method to check whether user has any file save or not */
+function userHasFile(user_id){
+  var fileContentsValue;
+  var ref = firebase.database().ref('users/' + user_id);
+  ref.once("value", function(snapshot) {
+    console.log(snapshot.val());
+    fileContentsValue = snapshot.val().filesUser;
+    console.log(fileContentsValue);
+  }, function (error) {
+    console.log("Error: " + error.code);
+  });
+  if(fileContentsValue){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+/**
+ * Method to count total no of files user has
+ * @param {Current user id} user_id 
+ */
+function totalFilesCount(user_id){
+  var totalFileCount;
+  var ref = firebase.database().ref('users/' + user_id);
+
+  ref.once("value", function(snapshot) {
+    console.log(snapshot.val());
+
+    totalFileCount = snapshot.val().totalfiles;
+
+    console.log(totalFileCount);
+  }, function (error) {
+    console.log("Error: " + error.code);
+  });
+
+  return totalFileCount;
+}
+
+/**
+ * Method to save file contents to firebase
+ * @param {Current user id} user_id 
+ */
+function saveFileContents(user_id){
+  var fileNo = "/file1";
+
+  /**
+   * Getting contents from the editor
+   */
+    var contents = toGetContents();
+
+//Storing Files table in firebase
+firebase.database().ref('Files/' + user_id + fileNo).set({
+  filecontent: contents,
+  shared: true
+});
+
+}
+
+/**
+ * Helper method to fetch data 
+ */
+function setContentInEditor(){
+  var user = firebase.auth().currentUser;
+  var user_id = user.uid;
+  var fileNo = '/file1';
+  
+  //Fetching file contents
+  var fetchContent = fetchFileContents(user_id, fileNo);
+  //console.log(fetchContent);
+  
+}
+
+/**
+ * Method to fetch contents of file from the firebase
+ * @param {user id} user_id 
+ * @param {file which to download} fileNo 
+ */
+function fetchFileContents(user_id, fileNo){
+  var fileContents;
+  var ref = firebase.database().ref('Files/' + user_id + fileNo);
+
+  ref.once("value", function(snapshot) {
+
+    console.log(snapshot.val());
+
+    fileContents = snapshot.val().filecontent;
+
+    //Temporary fix to display text in code convertor
+  /**
+  * Setting the downloaded contents back to editor
+  */
+ var editor = ace.edit("codeEditor");
+	
+ //Setting text back to the editor
+ editor.setValue(fileContents);
+    console.log(fileContents);
+  
+  }, function (error) {
+    console.log("Error: " + error.code);
+  });
+
+  return fileContents;
+}
+
+/**
+ * Method to get contents from the editor
+ */
+function toGetContents(){
+  var url = window.location.href;
+  console.log(url);
+
+  if(url.includes("codeConvertor")){
+    //Accessing the editor
+	var editor = ace.edit("codeEditor");
+	
+	//Getting text form the editor
+  var text = editor.getValue();
+  
+  return text;
+  }else{
+    console.log("TextEditor");
+    return null;
+  }
 }
