@@ -72,7 +72,7 @@ function loginWithEmail(){
 
   } else {
     // No user is signed in.
-    //window.location = "index.html";
+    window.location = "index.html";
 
     //document.getElementById("user_div").style.display = "none";
     //document.getElementById("login_div").style.display = "block";
@@ -117,7 +117,7 @@ function getDetails(){
 
     } else {
       // No user is signed in.
-      /*window.location = "index.html";*/
+      window.location = "index.html";
       console.log("Not signed in");
     }
   });
