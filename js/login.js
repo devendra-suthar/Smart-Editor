@@ -47,7 +47,7 @@ function loginWithEmail(){
     var errorCode = error.code;
     var errorMessage = error.message;
 
-    window.alert("Error : " + errorMessage);
+    alert("Error : " + errorMessage);
 
     // ...
   });
@@ -163,7 +163,7 @@ function writeUserData() {
       filesUser: true,
       totalfiles: 1
     });
-    window.alert("File Successfully Saved");
+    alert("File Successfully Saved");
   }
   catch(err){
 
@@ -285,7 +285,7 @@ function setContentInEditor(){
     }else{
       fetchFileContentsFromText(user_id, fileNo);
     }
-    window.alert("File Successfully loaded.");
+    alert("File Successfully loaded.");
   }
   catch(err){
 
