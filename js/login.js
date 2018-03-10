@@ -155,13 +155,19 @@ function writeUserData() {
 
 
   //var updatedTotalFileCount = totalFileCount + 1;
-//Storing Files table in firebase
-firebase.database().ref('users/' + user_id).set({
-  username: name,
-  email: user_email,
-  filesUser: true,
-  totalfiles: 1
-});
+  //Storing Files table in firebase
+  try{
+    firebase.database().ref('users/' + user_id).set({
+      username: name,
+      email: user_email,
+      filesUser: true,
+      totalfiles: 1
+    });
+    window.alert("File Successfully Saved");
+  }
+  catch(err){
+
+  }
 
   //Finding whether user has saved any file or not
   var filesUser = userHasFile(user_id);
@@ -271,12 +277,18 @@ function setContentInEditor(){
   var user_id = user.uid;
   var fileNo = '/file1';
   
-  if(window.location.href.includes("codeConvertor")){
-    //Fetching file contents
-  var fetchContent = fetchFileContentsFromCode(user_id, fileNo);
-  //console.log(fetchContent);
-  }else{
-    fetchFileContentsFromText(user_id, fileNo);
+  try{
+    if(window.location.href.includes("codeConvertor")){
+      //Fetching file contents
+    var fetchContent = fetchFileContentsFromCode(user_id, fileNo);
+    //console.log(fetchContent);
+    }else{
+      fetchFileContentsFromText(user_id, fileNo);
+    }
+    window.alert("File Successfully loaded.");
+  }
+  catch(err){
+
   }
 }
 
