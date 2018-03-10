@@ -56,6 +56,7 @@ function loginWithEmail(){
   if (user) {
       window.console.log(user);
     // User is signed in.
+	  window.location = "home.html";
 
     //document.getElementById("user_div").style.display = "block";
     //ocument.getElementById("login_div").style.display = "none";
@@ -65,7 +66,6 @@ function loginWithEmail(){
     if(user != null){
 
       var email_id = user.email;
-      window.location = "home.html";
       document.getElementById("details").innerHTML = "Welcome User : " + email_id;
 
     }
