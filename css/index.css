@@ -79,6 +79,7 @@ body{
 }
 .form-module button {
   cursor: pointer;
+  border-radius: 6px;
   background: #33b5e5;
   width: 100%;
   border: 0;
