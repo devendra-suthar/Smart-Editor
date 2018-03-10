@@ -32,10 +32,12 @@ body{
 .des{float:left; width:50%; height:500px;}
 .des h1{float:left;color:#FFF;font-size:50px;font-family:"Lucida Console", Monaco, monospace;margin:100px 0px 0px 160px;padding-bottom: 35px;}
 .des p{float:left;color:#FFF;font-size:25px;font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;padding-left:160px;}
-.login{float:left;background-color:#FFF;margin-top:70px;margin-left:115px;}
+.login{    border-radius: 15px;
+	float:left;background-color:#FFF;margin-top:70px;margin-left:115px;}
 
 /* Form Module */
 .form-module {
+	border-radius: 15px;
   position: relative;
   background: #ffffff;
 	height: 350px;
