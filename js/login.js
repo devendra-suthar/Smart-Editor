@@ -56,7 +56,7 @@ function loginWithEmail(){
   if (user) {
       window.console.log(user);
     // User is signed in.
-	  window.location = "home.html";
+	window.location = "home.html";
 
     //document.getElementById("user_div").style.display = "block";
     //ocument.getElementById("login_div").style.display = "none";
