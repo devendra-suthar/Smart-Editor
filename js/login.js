@@ -54,9 +54,9 @@ function loginWithEmail(){
     
     firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+	window.location = "home.html";
       window.console.log(user);
     // User is signed in.
-	window.location = "home.html";
 
     //document.getElementById("user_div").style.display = "block";
     //ocument.getElementById("login_div").style.display = "none";
