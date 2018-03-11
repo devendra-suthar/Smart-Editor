@@ -1,1 +1,1 @@
-web: gunicorn ProjectSmartEditor.wsgi
+web: python manage.py runserver
