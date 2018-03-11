@@ -14,11 +14,11 @@ window.onclick = function(event) {
 function logIn(){
   var provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
-    window.location = "home.html";
+    window.location.href = "/home";
     // This gives you a Google Access Token. You can use it to access the Google API.
   var token = result.credential.accessToken;
   // The signed-in user info.
-  var user = result.user;  
+  var user = result.user;
   //var details = document.getElementById("details");
   //details.innerHTML = user.displayName;
   // ...
@@ -51,7 +51,7 @@ function loginWithEmail(){
 
     // ...
   });
-    
+
     firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
       window.console.log(user);
@@ -65,14 +65,14 @@ function loginWithEmail(){
     if(user != null){
 
       var email_id = user.email;
-      window.location = "home.html";
+      window.location.href = "/home";
       document.getElementById("details").innerHTML = "Welcome User : " + email_id;
 
     }
 
   } else {
     // No user is signed in.
-    window.location = "index.html";
+    window.location.href = "/";
 
     //document.getElementById("user_div").style.display = "none";
     //document.getElementById("login_div").style.display = "block";
@@ -90,7 +90,7 @@ function logOut(){
   //firebase.auth().signOut();
   firebase.auth().signOut().then(function() {
   // Sign-out successful.
-  window.location = "index.html";
+  window.location.href = "/";
   console.log("Signed out");
 }).catch(function(error) {
   // An error happened.
@@ -113,11 +113,12 @@ function getDetails(){
         document.getElementById("details").innerHTML = "Welcome User : " + email_id;
         console.log(user_id);
         console.log("Signed In");
+//        document.getElementsByTagName('body').style.cssText = 'display:block';
       }
 
     } else {
       // No user is signed in.
-      window.location = "index.html";
+      window.location.href = "/";
       console.log("Not signed in");
     }
   });
@@ -200,7 +201,7 @@ function userHasFile(user_id){
 
 /**
  * Method to count total no of files user has
- * @param {Current user id} user_id 
+ * @param {Current user id} user_id
  */
 function totalFilesCount(user_id){
   var totalFileCount;
@@ -221,7 +222,7 @@ function totalFilesCount(user_id){
 
 /**
  * Helper method to distinguish between textEditor and codeConvertor
- * @param {Current user id} user_id 
+ * @param {Current user id} user_id
  */
 function saveFileContents(user_id){
   if(window.location.href.includes("codeConvertor.html")){
@@ -232,7 +233,7 @@ function saveFileContents(user_id){
 }
 /**
  * Method to save file contents to firebase
- * @param {Current user id} user_id 
+ * @param {Current user id} user_id
  */
 function saveFileContentsFromText(user_id){
   var fileNo = "/file1";
@@ -251,7 +252,7 @@ firebase.database().ref('Files/' + '/TextEditor/' + user_id +  fileNo).set({
 }
 /**
  * Method to save file contents to firebase
- * @param {Current user id} user_id 
+ * @param {Current user id} user_id
  */
 function saveFileContentsFromCode(user_id){
   var fileNo = "/file1";
@@ -270,13 +271,13 @@ firebase.database().ref('Files/' + '/CodeConvertor/' + user_id +  fileNo).set({
 }
 
 /**
- * Helper method to fetch data 
+ * Helper method to fetch data
  */
 function setContentInEditor(){
   var user = firebase.auth().currentUser;
   var user_id = user.uid;
   var fileNo = '/file1';
-  
+
   try{
     if(window.location.href.includes("codeConvertor")){
       //Fetching file contents
@@ -294,8 +295,8 @@ function setContentInEditor(){
 
 /**
  * Method to fetch contents of file from the firebase
- * @param {user id} user_id 
- * @param {file which to download} fileNo 
+ * @param {user id} user_id
+ * @param {file which to download} fileNo
  */
 function fetchFileContentsFromText(user_id, fileNo){
   var fileContents;
@@ -309,9 +310,9 @@ function fetchFileContentsFromText(user_id, fileNo){
 
     //Temporary fix to display in textEditor
     tinymce.get("textEditor").setContent(fileContents);
-    
+
     console.log(fileContents);
-  
+
   }, function (error) {
     console.log("Error: " + error.code);
   });
@@ -321,8 +322,8 @@ function fetchFileContentsFromText(user_id, fileNo){
 
 /**
  * Method to fetch contents of file from the firebase
- * @param {user id} user_id 
- * @param {file which to download} fileNo 
+ * @param {user id} user_id
+ * @param {file which to download} fileNo
  */
 function fetchFileContentsFromCode(user_id, fileNo){
   var fileContents;
@@ -339,12 +340,12 @@ function fetchFileContentsFromCode(user_id, fileNo){
      * Setting the downloaded contents back to editor
      */
       var editor = ace.edit("codeEditor");
-        
+
       //Setting text back to the editor
       editor.setValue(fileContents);
-    
+
     console.log(fileContents);
-  
+
   }, function (error) {
     console.log("Error: " + error.code);
   });
@@ -363,10 +364,10 @@ function toGetContents(){
   if(url.includes("codeConvertor")){
     //Accessing the editor
 	var editor = ace.edit("codeEditor");
-	
+
 	//Getting text form the editor
   text = editor.getValue();
-  
+
   return text;
   }else{
     //var textEditor = document.getElementById('textEditor');

@@ -1,10 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+{% load staticfiles %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/2001/XMLSchema">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Editor</title>
-<link href="css/main.css" rel="stylesheet" type="text/css">
+<link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://materializecss.com/css/ghpages-materialize.css">
@@ -15,10 +16,10 @@
 <div class="col s3">
 	<div class="sidenav">
     		<a title="Smart Editor" style="background:#f8f8f8; color:black;" >
-            	<span class="icon-home"><i class="material-icons">grade</i></span>
+            	<span class="icon-home"><i class="material-icons">bubble_chart</i></span>
                 <span class="text" style="margin-left:20px; margin-top:-28px; font-size:25px;">Smart Editor</span>
             </a>
-    		<a href="home.html" title="Home" class="active">
+    		<a href="{% url 'home' %}" title="Home" class="active">
             	<span class="icon-home"><i class="material-icons">home</i></span>
                 <span class="text">Home</span>
             </a>
@@ -33,15 +34,15 @@
                 </a>
              </button>
   			<div class="dropdown-container">
-				<a href="home.html" title="notes">
+				<a href="{% url 'home' %}" title="notes">
                 	<span class="icon-home"><i class="material-icons">note</i></span>
                 	<span class="text">Notes</span>
                 </a>
-				<a href="textEditor.html" id="editor" title="editor" onclick="openPage();">
+				<a href="{% url 'textEditor' %}" id="editor" title="editor" onclick="openPage();">
                 	<span class="icon-home"><i class="material-icons">border_color</i></span>
                 	<span class="text">Editor</span>
                 </a>
-				<a href="codeConvertor.html" title="Code Convertor">
+				<a href="{% url 'codeConverter' %}" title="Code Convertor">
                 	<span class="icon-home"><i class="material-icons">code</i></span>
                 	<span class="text">Code Convertor</span>
                 </a>
@@ -65,60 +66,14 @@
             </a>
       </div>   
 </div>
-	
-<div class="col s6">
-   <div class="container" style="width:66%;">
-    	<div class="welcome">
-			<h1 class="header" id="details">Welcome to Smart Editor</h1>
-		</div>
 
-	<!-- Code for displaying card -->
-		<div class="row" style="margin-left:auto; margin-right:0px;">
-        	
-            <div class="col s12 m6 card-width" style="margin-top:80px; margin-left:80px;">
- 				<div class="card white">
-					<div class="card-image">
-						<img class="responsive-img" src="images/texteditor.png" style="max-width:100%;">
-						<a class="btn-floating halfway-fab waves-effect waves-light red" href="textEditor.html"><i class="material-icons">arrow_forward</i></a>
-				 	</div>
-					<div class="card-content black-text">
-						<span class="card-title card-text-content">Text Editor</span>
-                		<p class="card-text-content">Try our feature to edit the content of any image on the go, with the text editor.</p>
-            		</div>
-                </div>
-      		</div>
-
-			<!-- Code for second card -->
-			<div class="col s12 m6 card-width" style="margin-left:80px;margin-top:80px;">
-          		 <div class="card white">
-      		  		<div class="card-image">
-						<img class="responsive-img" src="images/code.jpg" style="max-width:100%;">
-						<a class="btn-floating halfway-fab waves-effect waves-light red" href="codeConvertor.html">
-                        	<i class="material-icons">arrow_forward</i>
-                        </a>
-		     		 </div>
-    		  		 <div class="card-content black-text">
-						<span class="card-title card-text-content">Code Convertor</span>
-              			<p class="card-text-content">Try our feature to run and compile any code by their pictures.</p>
-               		 </div>
-              	<div>
-            </div>
-			<!-- Code for second card ends here -->
-       </div>
-	   <!-- Code for card ends here -->
-	</div>
-</div>
-
-<div class="col s3".
-	  <div id="log1">
-      </div>
-</div>
+{% block content %} {% endblock %}
 
 <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
-<script type="text/javascript" src="js/sidenav.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/sidenav.js' %}"></script>
 </body>
 
 </html>

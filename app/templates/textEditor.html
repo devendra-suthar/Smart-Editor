@@ -1,71 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Editor</title>
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://materializecss.com/css/ghpages-materialize.css">
-
-</head>
-
-<body onload="getDetails();">
-
-<div class="col s3 m3">
-	<div class="sidenav">
-    		<a title="Smart Editor" style="background:#f8f8f8; color:black;">
-            	<span class="icon-home"><i class="material-icons">grade</i></span>
-                <span class="text" style="margin-left:20px; margin-top:-28px; font-size:25px;">Smart Editor</span>
-            </a>
-    		<a href="home.html" title="Home">
-            	<span class="icon-home"><i class="material-icons">home</i></span>
-                <span class="text">Home</span>
-            </a>
-        	<a href="#" title="Files">
-            	<span class="icon-home"><i class="material-icons">folder</i></span>
-                <span class="text">Files</span>
-            </a>
-  			<button class="dropdown-btn">
-            	<a href="#" title="Tools"> 
-                	<i id="fa fa-caret-down" class="material-icons" >list</i></span>
-                	<span class="text">Tools</span>
-                </a>
-             </button>
-  			 <div class="dropdown-container">
-				<a href="home.html" title="notes">
-                	<span class="icon-home"><i class="material-icons">note</i></span>
-                	<span class="text">Notes</span>
-                </a>
-				<a href="textEditor.html" id="editor" title="editor" onclick="openPage();" class="active">
-                	<span class="icon-home"><i class="material-icons">border_color</i></span>
-                	<span class="text">Editor</span>
-                </a>
-				<a href="codeConvertor.html" title="Code Convertor">
-                	<span class="icon-home"><i class="material-icons">code</i></span>
-                	<span class="text">Code Convertor</span>
-                </a>
-				<!--<a href="" title="Translator"><i class="material-icons">translate</i>TRANSLATOR</a>-->
-			</div>
-           	<a href="#" title="Trash">
-            	<span class="icon-home"><i class="material-icons">delete</i></span>
-                <span class="text">Delete</span>
-            </a>
-        	<a href="#" title="Settings">
-            	<span class="icon-home"><i class="material-icons">settings</i></span>
-                <span class="text">Settings</span>
-            </a>
-        	<a href="#" title="account circle">
-            	<span class="icon-home"><i class="material-icons">account_circle</i></span>
-                <span class="text">Account</span>
-            </a>
-			<a href="#" title="account circle" onclick="logOut();">
-            	<span class="icon-home"><i class="material-icons">add</i></span>
-                <span class="text">Log-Out</span>
-            </a>
-     </div>      
-</div>
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block content %}
 
 <div class="col s9 m6">
    <div class="container" style="width:66%;">
@@ -152,10 +87,8 @@
 
 <div class="col s12 m3">
 	<div id="log1">
-		<div id="log">
-        </div>
-	</div>
-    
+		<div id="log"></div>
+  	</div>
 		<div class="fixed-action-btn vertical click-to-toggle">
 			<a class="btn-floating btn-large #00B7C3">
 				<i class="material-icons">add</i>
@@ -168,22 +101,15 @@
 			</ul>
 		</div>
 </div>
-    
 
-	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/login.js"></script>
-	<script type="text/javascript" src="js/sidenav.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-	<script type="text/javascript" src="plugins/tinymce/tinymce.min.js"></script>
+
+	<script type="text/javascript" src="{% static 'plugins/tinymce/tinymce.min.js' %}"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script>tinymce.init({
 			selector: 'textarea',
 			height: 300,
 			menubar: true
 		});</script> -->
 	<script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
-	<script type="text/javascript" src="js/ocr.js"></script>
-</body>
-
-</html>
+	<script type="text/javascript" src="{% static 'js/ocr.js' %}"></script>
+{% endblock %}

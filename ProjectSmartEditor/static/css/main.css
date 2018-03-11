@@ -23,7 +23,7 @@
 /*--------------- General -----------------------*/
 
 body{
-	/*background:url(../images/new-background-pictures-2560x1600-WTG004590.jpg);*/
+	display:block;
     background-color: #FFFFFF;
 	background-size:cover;
 	color:#4d4d4e;
@@ -60,7 +60,7 @@ h2{
 .sidenav a{
 	padding:18px 15px 15px 25px;
 	font-family:Roboto,sans-serif;
-	font-size:20px !important;
+	font-size:15px !important;
 	color:#2b313f;
 	display:block;
   font-weight: 400;

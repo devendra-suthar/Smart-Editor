@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="col s9 m6">   
+    <div class="container" style="width:66%;">
+    	<div class="welcome">
+			<h1 class="header" id="details">Welcome to Code Convertor</h1>
+		</div>
+		<div class="welcome">
+  	    	<h5 style="color:#000; font-size:22px; line-height:110%; margin: 0px 13px 10px 10px;">Select language</h5>
+   		 	<select id="languages" class="select-show blue darken-2 left" required>
+    	    	<option value="c" selected> C </option>
+   	            <option value="c++">C++</option>
+           	    <option value="java">Java</option>
+   		     </select>
+		
+				<div id="codeEditor" style="width:100%;">Your code...</div>
+				<a href="#!" class="btn blue lighten-1 waves-effect waves-light" onclick="writeUserData();"><i class="material-icons left">save</i>Save</a>
+				<a href="#!" class="btn blue lighten-1 waves-effect waves-light" onclick="setContentInEditor();"><i class="material-icons left">refresh</i>Re-load the data</a>
+			 <!-- Button for compile and run the code-->
+        	 <button class="btn red" style="margin-top:10px;margin-left:10px;" type="submit" onclick="makeCorsRequest()">Compile & Run</button>
+		 	 <!-- Div for displaying the output-->
+			 <div id="output" class="card-panel grey lighten-3 red-text lighten-2 left-align" style="font-size: 15px;width:100%;">Results appear here</div>
+
+			<select id="langsel" onchange="window.lastFile && recognizeFile(window.lastFile)">
+					<option value='eng'     selected> English       </option>
+			</select>
+		</div>
+	</div>
+</div>
+
+<div class="col s12 m3">
+    <div id="log1">
+		<div id="log"></div>
+  	</div>
+	<div class="fixed-action-btn vertical click-to-toggle">
+		<a class="btn-floating btn-large #00B7C3">
+			<i class="material-icons">add</i>
+		</a>
+		<ul>
+			<li><a class="btn-floating green" title="Camera"><i class="material-icons">camera_alt</i></a></li>
+			<li><a class="btn-floating blue" title="Upload Files" href="javascript:void(0)" id="upload"><i class="material-icons">file_upload</i></a>
+				<input id="upload-file" type="file" onchange="recognizeFile(window.lastFile=this.files[0])"/>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="{% static 'plugins/ace/src/ace.js' %}" charset="utf-8"></script>
+<!-- <script src="src/theme-twilight.js" type="text/javascript" charset="utf-8"></script> -->
+<script>
+		var codeEditor = ace.edit("codeEditor");
+	    	//codeEditor.resize();
+		//codeEditor.setTheme("ace/theme/twilight")
+</script>
+<script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="{% static 'js/ocr.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/codecompiler.js' %}"></script>
+{% endblock %}
