@@ -1,1 +1,1 @@
-web: gunicorn ProjectSmartEditor.wsgi
+web: gunicorn {{ project_name }}..wsgi
