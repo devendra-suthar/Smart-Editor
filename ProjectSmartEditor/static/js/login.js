@@ -54,7 +54,6 @@ function loginWithEmail(){
 
     firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-	window.location = "home.html";
       window.console.log(user);
     // User is signed in.
 
@@ -66,10 +65,7 @@ function loginWithEmail(){
     if(user != null){
 
       var email_id = user.email;
-<<<<<<< HEAD:ProjectSmartEditor/static/js/login.js
       window.location.href = "/home";
-=======
->>>>>>> cdc6868c1ed4db601c73856bc0776be206e4a91c:js/login.js
       document.getElementById("details").innerHTML = "Welcome User : " + email_id;
 
     }
