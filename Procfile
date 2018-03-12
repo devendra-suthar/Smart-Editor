@@ -1,2 +1,2 @@
-web: gunicorn ProjectSmartEditor.wsgi  -preload
+web: gunicorn ProjectSmartEditor.wsgi  --preload
 
