@@ -66,8 +66,9 @@ function getTitle(text) {
 function makeCorsRequest() {
   // This is a sample server that supports CORS.
   var url = 'https://api.jdoodle.com/execute';
-
-  var xhr = createCORSRequest('POST', url);
+  var corsURL = 'https://cors-anywhere.herokuapp.com/' + url;
+  
+  var xhr = createCORSRequest('POST', corsURL);
   if (!xhr) {
     alert('CORS not supported');
     return;
