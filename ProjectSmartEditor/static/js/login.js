@@ -279,9 +279,9 @@ function setContentInEditor(){
   var fileNo = '/file1';
 
   try{
-    if(window.location.href.includes("codeConvertor")){
+    if(window.location.href.includes("codeEditor")){
       //Fetching file contents
-    var fetchContent = fetchFileContentsFromCode(user_id, fileNo);
+      fetchFileContentsFromCode(user_id, fileNo);
     //console.log(fetchContent);
     }else{
       fetchFileContentsFromText(user_id, fileNo);
