@@ -1,47 +1,48 @@
-{% extends "layout.html" %}
-{% block content %}
-<div class="col s6">
-   <div class="container" style="width:66%;">
-    	<div class="welcome">
-			<h1 class="header" id="details">Welcome to Smart Editor</h1>
+{% extends "layout.html" %} {% block content %}
+<div class="container right" style="width:83%;">
+	<div class="welcome ">
+		<h1 class="header">
+			<span class="text" style="margin-left:20px; margin-top:-28px; font-size:25px;">
+				<i class="material-icons">bubble_chart</i>Smart Editor</span>
+		</h1>
+	</div>
+	<!-- Code for displaying card -->
+	<div class="row">
+
+		<div class="col card-width" style="margin-top:5%; margin-left:10%;">
+			<div class="card z-depth-5">
+				<div class="card-image">
+					<img class="responsive-img" src="../static/images/texteditor.png" style="max-width:100%;">
+					<a class="btn-floating halfway-fab waves-effect waves-light red" href="{% url 'textEditor' %}">
+						<i class="material-icons">arrow_forward</i>
+					</a>
+				</div>
+				<div class="card-content black-text">
+					<span class="card-title card-text-content">Text Editor</span>
+					<p class="card-text-content">Try our feature to edit the content of any image on the go, with the text editor.</p>
+				</div>
+			</div>
 		</div>
 
-	<!-- Code for displaying card -->
-		<div class="row" style="margin-left:auto; margin-right:0px;">
-
-            <div class="col s12 m6 card-width" style="margin-top:80px; margin-left:80px;">
- 				<div class="card white">
-					<div class="card-image">
-						<img class="responsive-img" src="../static/images/texteditor.png" style="max-width:100%;">
-						<a class="btn-floating halfway-fab waves-effect waves-light red" href="{% url 'textEditor' %}"><i class="material-icons">arrow_forward</i></a>
-				 	</div>
-					<div class="card-content black-text">
-						<span class="card-title card-text-content">Text Editor</span>
-                		<p class="card-text-content">Try our feature to edit the content of any image on the go, with the text editor.</p>
-            		</div>
-                </div>
-      		</div>
-
-			<!-- Code for second card -->
-			<div class="col s12 m6 card-width" style="margin-left:80px;margin-top:80px;">
-          		 <div class="card white">
-      		  		<div class="card-image">
-						<img class="responsive-img" src="../static/images/code.jpg" style="max-width:100%;">
-						<a class="btn-floating halfway-fab waves-effect waves-light red" href="{% url 'codeConverter' %}">
-                        	<i class="material-icons">arrow_forward</i>
-                        </a>
-		     		 </div>
-    		  		 <div class="card-content black-text">
-						<span class="card-title card-text-content">Code Convertor</span>
-              			<p class="card-text-content">Try our feature to run and compile any code by their pictures.</p>
-               		 </div>
-              	<div>
-            </div>
-			<!-- Code for second card ends here -->
-       </div>
-	   <!-- Code for card ends here -->
+		<!-- Code for second card -->
+		<div class="col s12 m12 card-width" style="margin-left:10%;margin-top:5%;">
+			<div class="card white z-depth-5">
+				<div class="card-image">
+					<img class="responsive-img" src="../static/images/code.jpg" style="max-width:100%;">
+					<a class="btn-floating halfway-fab waves-effect waves-light red" href="{% url 'codeConverter' %}">
+						<i class="material-icons">arrow_forward</i>
+					</a>
+				</div>
+				<div class="card-content black-text">
+					<span class="card-title card-text-content">Code Convertor</span>
+					<p class="card-text-content">Try our feature to run and compile any code by their pictures.</p>
+				</div>
+				<div>
+				</div>
+				<!-- Code for second card ends here -->
+			</div>
+			<!-- Code for card ends here -->
+		</div>
 	</div>
-</div>
-   </div>
 </div>
 {% endblock %}

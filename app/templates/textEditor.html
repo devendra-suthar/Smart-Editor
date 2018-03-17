@@ -1,129 +1,138 @@
-{% extends "layout.html" %}
-{% load staticfiles %}
-{% block content %}
+{% extends "layout.html" %} {% load staticfiles %} {% block content %}
 
-<div class="col s9 m6">
-   <div class="container" style="width:66%;">
-		<div class="welcome">
-			<h1 class="header" id="details">Welcome to Smart Text Editor</h1>
-		</div>
-		<div class="welcome">
-        	<h5 style="color:#000; font-size:22px; line-height:110%; margin: 0px 13px 10px 10px;">Select language</h5>
+<div class="container" style="width:66%;">
+	<div class="welcome ">
+		<h1 class="header">
+			<span class="text" style="margin-left:20px; margin-top:-28px; font-size:25px;">
+				<i class="material-icons">bubble_chart</i>Smart Editor</span>
+		</h1>
+	</div>
+</div>
+<div class="container" style="width:64%;">s
+	<div class="row">
+		<div class="col s10 m3 offset-s1 offset-m1">
+			<h5 style="color:#000; font-size:15px; line-height:80%; margin: 0px 10px 8px 8px;">Select language</h5>
 			<select id="langsel" class="select-show blue darken-2" onchange="window.lastFile && recognizeFile(window.lastFile)">
-					<option value='afr'     > Afrikaans             </option>
-					<option value='ara'     > Arabic                </option>
-					<option value='aze'     > Azerbaijani           </option>
-					<option value='bel'     > Belarusian            </option>
-					<option value='ben'     > Bengali               </option>
-					<option value='bul'     > Bulgarian             </option>
-					<option value='cat'     > Catalan               </option>
-					<option value='ces'     > Czech                 </option>
-					<option value='chi_sim' > Chinese               </option>
-					<option value='chi_tra' > Traditional Chinese   </option>
-					<option value='chr'     > Cherokee              </option>
-					<option value='dan'     > Danish                </option>
-					<option value='deu'     > German                </option>
-					<option value='ell'     > Greek                 </option>
-					<option value='eng'     selected> English       </option>
-					<option value='enm'     > English (Old)         </option>
-					<option value='meme'    > Internet Meme         </option>
-					<option value='epo'     > Esperanto             </option>
-					<option value='epo_alt' > Esperanto alternative </option>
-					<option value='equ'     > Math                  </option>
-					<option value='est'     > Estonian              </option>
-					<option value='eus'     > Basque                </option>
-					<option value='fin'     > Finnish               </option>
-					<option value='fra'     > French                </option>
-					<option value='frk'     > Frankish              </option>
-					<option value='frm'     > French (Old)          </option>
-					<option value='glg'     > Galician              </option>
-					<option value='grc'     > Ancient Greek         </option>
-					<option value='heb'     > Hebrew                </option>
-					<option value='hin'     > Hindi                 </option>
-					<option value='hrv'     > Croatian              </option>
-					<option value='hun'     > Hungarian             </option>
-					<option value='ind'     > Indonesian            </option>
-					<option value='isl'     > Icelandic             </option>
-					<option value='ita'     > Italian               </option>
-					<option value='ita_old' > Italian (Old)         </option>
-					<option value='jpn'     > Japanese              </option>
-					<option value='kan'     > Kannada               </option>
-					<option value='kor'     > Korean                </option>
-					<option value='lav'     > Latvian               </option>
-					<option value='lit'     > Lithuanian            </option>
-					<option value='mal'     > Malayalam             </option>
-					<option value='mkd'     > Macedonian            </option>
-					<option value='mlt'     > Maltese               </option>
-					<option value='msa'     > Malay                 </option>
-					<option value='nld'     > Dutch                 </option>
-					<option value='nor'     > Norwegian             </option>
-					<option value='pol'     > Polish                </option>
-					<option value='por'     > Portuguese            </option>
-					<option value='ron'     > Romanian              </option>
-					<option value='rus'     > Russian               </option>
-					<option value='slk'     > Slovakian             </option>
-					<option value='slv'     > Slovenian             </option>
-					<option value='spa'     > Spanish               </option>
-					<option value='spa_old' > Old Spanish           </option>
-					<option value='sqi'     > Albanian              </option>
-					<option value='srp'     > Serbian (Latin)       </option>
-					<option value='swa'     > Swahili               </option>
-					<option value='swe'     > Swedish               </option>
-					<option value='tam'     > Tamil                 </option>
-					<option value='tel'     > Telugu                </option>
-					<option value='tgl'     > Tagalog               </option>
-					<option value='tha'     > Thai                  </option>
-					<option value='tur'     > Turkish               </option>
-					<option value='ukr'     > Ukrainian             </option>
-					<option value='vie'     > Vietnamese            </option>
+				<option value='afr'> Afrikaans </option>
+				<option value='ara'> Arabic </option>
+				<option value='aze'> Azerbaijani </option>
+				<option value='bel'> Belarusian </option>
+				<option value='ben'> Bengali </option>
+				<option value='bul'> Bulgarian </option>
+				<option value='cat'> Catalan </option>
+				<option value='ces'> Czech </option>
+				<option value='chi_sim'> Chinese </option>
+				<option value='chi_tra'> Traditional Chinese </option>
+				<option value='chr'> Cherokee </option>
+				<option value='dan'> Danish </option>
+				<option value='deu'> German </option>
+				<option value='ell'> Greek </option>
+				<option value='eng' selected> English </option>
+				<option value='enm'> English (Old) </option>
+				<option value='meme'> Internet Meme </option>
+				<option value='epo'> Esperanto </option>
+				<option value='epo_alt'> Esperanto alternative </option>
+				<option value='equ'> Math </option>
+				<option value='est'> Estonian </option>
+				<option value='eus'> Basque </option>
+				<option value='fin'> Finnish </option>
+				<option value='fra'> French </option>
+				<option value='frk'> Frankish </option>
+				<option value='frm'> French (Old) </option>
+				<option value='glg'> Galician </option>
+				<option value='grc'> Ancient Greek </option>
+				<option value='heb'> Hebrew </option>
+				<option value='hin'> Hindi </option>
+				<option value='hrv'> Croatian </option>
+				<option value='hun'> Hungarian </option>
+				<option value='ind'> Indonesian </option>
+				<option value='isl'> Icelandic </option>
+				<option value='ita'> Italian </option>
+				<option value='ita_old'> Italian (Old) </option>
+				<option value='jpn'> Japanese </option>
+				<option value='kan'> Kannada </option>
+				<option value='kor'> Korean </option>
+				<option value='lav'> Latvian </option>
+				<option value='lit'> Lithuanian </option>
+				<option value='mal'> Malayalam </option>
+				<option value='mkd'> Macedonian </option>
+				<option value='mlt'> Maltese </option>
+				<option value='msa'> Malay </option>
+				<option value='nld'> Dutch </option>
+				<option value='nor'> Norwegian </option>
+				<option value='pol'> Polish </option>
+				<option value='por'> Portuguese </option>
+				<option value='ron'> Romanian </option>
+				<option value='rus'> Russian </option>
+				<option value='slk'> Slovakian </option>
+				<option value='slv'> Slovenian </option>
+				<option value='spa'> Spanish </option>
+				<option value='spa_old'> Old Spanish </option>
+				<option value='sqi'> Albanian </option>
+				<option value='srp'> Serbian (Latin) </option>
+				<option value='swa'> Swahili </option>
+				<option value='swe'> Swedish </option>
+				<option value='tam'> Tamil </option>
+				<option value='tel'> Telugu </option>
+				<option value='tgl'> Tagalog </option>
+				<option value='tha'> Thai </option>
+				<option value='tur'> Turkish </option>
+				<option value='ukr'> Ukrainian </option>
+				<option value='vie'> Vietnamese </option>
 			</select>
-			<!-- Code for text field and button -->
-				<div class="row">
-					<div class="input-field col s8">
-						<input placeholder="filename" id="filename" type="text" class="validate black-text">
-						<label for="file_name">File Name</label>
-					</div>
-					<div class="col s2">
-						<a href="#!" class="btn blue lighten-1 waves-effect waves-light right" onclick="writeUserData();">
-							<i class="material-icons left">save</i>Save</a>
-					</div>
-
-					<div class="col s2">
-						<a href="#!" class="btn blue lighten-1 waves-effect waves-light right-align" onclick="setContentInEditor();">
-							<i class="material-icons left">refresh</i>Load</a>
-					</div>
-				</div>
-
-			<textarea class="tinymce " id="textEditor"></textarea>
 		</div>
- 	</div>
+		<!-- Code for text field and button -->
+		<div class="col s10 m3 offset-s1">
+			<label for="file_name" style="color:#000; font-size:14px; line-height:110%; margin: 10px 8px 5px 5px;">File Name</label>
+			<input placeholder="Please Enter a FileName" id="filename" type="text" class="validate black-text input-field">
+		</div>
+		<div class="col s6 m2">
+			<a href="#!" class="btn blue lighten-1 waves-effect waves-light right " onclick="writeUserData();">
+				<i class="material-icons left">save</i>Save</a>
+		</div>
+
+		<div class="col s6 m2">
+			<a href="#!" class="btn blue lighten-1 waves-effect waves-light left" onclick="setContentInEditor();">
+				<i class="material-icons left">refresh</i>Load</a>
+		</div>
+	</div>
+	<textarea class="tinymce " id="textEditor"></textarea>
+</div>
 </div>
 
 <div class="col s12 m3">
 	<div id="log1">
 		<div id="log"></div>
-  	</div>
-		<div class="fixed-action-btn vertical click-to-toggle">
-			<a class="btn-floating btn-large #00B7C3">
-				<i class="material-icons">add</i>
-			</a>
-			<ul>
-				<li><a class="btn-floating green" title="Camera"><i class="material-icons">camera_alt</i></a></li>
-				<li><a class="btn-floating blue" title="Upload Files" href="javascript:void(0)" id="upload"><i class="material-icons">file_upload</i></a>
-					<input id="upload-file" type="file" onchange="recognizeFile(window.lastFile=this.files[0])"/>
-				</li>
-			</ul>
-		</div>
-</div>
+	</div>
+	<div class="fixed-action-btn vertical click-to-toggle">
+		<a class="btn-floating btn-large #00B7C3">
+			<i class="material-icons">add</i>
+		</a>
+		<ul>
+			<li>
+				<a class="btn-floating green" title="Camera">
+					<i class="material-icons">camera_alt</i>
+				</a>
+			</li>
+			<li>
+				<a class="btn-floating blue" title="Upload Files" href="javascript:void(0)" id="upload">
+					<i class="material-icons">file_upload</i>
+				</a>
+				<input id="upload-file" type="file" onchange="recognizeFile(window.lastFile=this.files[0])" />
+			</li>
+		</ul>
+	</div>
 
 
 	<script type="text/javascript" src="{% static 'plugins/tinymce/tinymce.min.js' %}"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script>tinymce.init({
+	<script>
+		tinymce.init({
 			selector: 'textarea',
 			height: 300,
 			menubar: true
-		});</script> -->
+		});
+	</script> -->
 	<script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
 	<script type="text/javascript" src="{% static 'js/ocr.js' %}"></script>
-{% endblock %}
+	{% endblock %}
