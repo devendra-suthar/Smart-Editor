@@ -16,22 +16,22 @@ function logIn(){
   firebase.auth().signInWithPopup(provider).then(function(result) {
     window.location.href = "/home";
     // This gives you a Google Access Token. You can use it to access the Google API.
-  var token = result.credential.accessToken;
-  // The signed-in user info.
-  var user = result.user;
-  //var details = document.getElementById("details");
-  //details.innerHTML = user.displayName;
-  // ...
-}).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
-  var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-  var credential = error.credential;
-  // ...
-});
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    //var details = document.getElementById("details");
+    //details.innerHTML = user.displayName;
+    // ...
+  }).catch(function (error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+  });
 }
 
 /**
@@ -55,30 +55,29 @@ function loginWithEmail(){
     firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
       window.console.log(user);
-    // User is signed in.
+      // User is signed in.
 
-    //document.getElementById("user_div").style.display = "block";
-    //ocument.getElementById("login_div").style.display = "none";
+      //document.getElementById("user_div").style.display = "block";
+      //ocument.getElementById("login_div").style.display = "none";
 
-    var user = firebase.auth().currentUser;
+      var user = firebase.auth().currentUser;
 
-    if(user != null){
+      if (user != null) {
+        window.location.href = "/home";
+        var email_id = user.email;
+        document.getElementById("details").innerHTML = "Welcome User : " + email_id;
 
-      var email_id = user.email;
-      window.location.href = "/home";
-      document.getElementById("details").innerHTML = "Welcome User : " + email_id;
+      }
+
+    } else {
+      // No user is signed in.
+      //window.location = "index.html";
+
+      //document.getElementById("user_div").style.display = "none";
+      //document.getElementById("login_div").style.display = "block";
 
     }
-
-  } else {
-    // No user is signed in.
-    window.location.href = "/";
-
-    //document.getElementById("user_div").style.display = "none";
-    //document.getElementById("login_div").style.display = "block";
-
-  }
-});
+  });
 
 
 }
@@ -164,9 +163,7 @@ function writeUserData() {
       filesUser: true,
       totalfiles: 1
     });
-    alert("File Successfully Saved");
-  }
-  catch(err){
+  } catch (err) {
 
   }
 
@@ -177,7 +174,6 @@ function writeUserData() {
   var totalFileCount = totalFilesCount(user_id);
   saveFileContents(user_id);
 
-  console.log("Data Saved");
   //console.log(fileContentsValue);
 }
 
@@ -201,7 +197,7 @@ function userHasFile(user_id){
 
 /**
  * Method to count total no of files user has
- * @param {Current user id} user_id
+ * @param {Current user id} user_id 
  */
 function totalFilesCount(user_id){
   var totalFileCount;
@@ -224,96 +220,110 @@ function totalFilesCount(user_id){
  * Helper method to distinguish between textEditor and codeConvertor
  * @param {Current user id} user_id
  */
-function saveFileContents(user_id){
-  if(window.location.href.includes("codeConvertor.html")){
-    saveFileContentsFromCode(user_id);
-  }else{
-    saveFileContentsFromText(user_id);
+function saveFileContents(user_id) {
+  if (validateField()) {
+    if (window.location.href.includes("codeConvertor.html")) {
+      saveFileContentsFromCode(user_id);
+    } else {
+      saveFileContentsFromText(user_id);
+    }
+    alert("File Successfully Saved");
+    console.log("Data Saved");
   }
 }
 /**
  * Method to save file contents to firebase
  * @param {Current user id} user_id
  */
-function saveFileContentsFromText(user_id){
-  var fileNo = "/file1";
+function saveFileContentsFromText(user_id) {
+  //var fileNo = "/file1";
+  //Getting file name
+  var fileName = document.getElementById("filename").value;
 
   /**
    * Getting contents from the editor
    */
-    var contents = toGetContents();
+  var contents = toGetContents();
 
-//Storing Files table in firebase
-firebase.database().ref('Files/' + '/TextEditor/' + user_id +  fileNo).set({
-  filecontent: contents,
-  shared: true
-});
+  //Storing Files table in firebase
+  firebase.database().ref('Files/' + '/TextEditor/' + user_id + "/" + fileName).set({
+    filecontent: contents,
+    shared: true
+  });
 
 }
 /**
  * Method to save file contents to firebase
- * @param {Current user id} user_id
+ * @param {Current user id} user_id 
  */
-function saveFileContentsFromCode(user_id){
-  var fileNo = "/file1";
+function saveFileContentsFromCode(user_id) {
+  //var fileNo = "/file1";
+  //Getting file name
+  var fileName = document.getElementById("filename").value;
 
   /**
    * Getting contents from the editor
    */
-    var contents = toGetContents();
+  var contents = toGetContents();
 
-//Storing Files table in firebase
-firebase.database().ref('Files/' + '/CodeConvertor/' + user_id +  fileNo).set({
-  filecontent: contents,
-  shared: true
-});
+  //Storing Files table in firebase
+  firebase.database().ref('Files/' + '/CodeConvertor/' + user_id + "/" + fileName).set({
+    filecontent: contents,
+    shared: true
+  });
 
 }
 
 /**
- * Helper method to fetch data
+ * Helper method to fetch data 
  */
-function setContentInEditor(){
+function setContentInEditor() {
   var user = firebase.auth().currentUser;
   var user_id = user.uid;
-  var fileNo = '/file1';
+  //Getting file name
+  var fileName = document.getElementById("filename").value;
 
-  try{
-    if(window.location.href.includes("codeEditor")){
-      //Fetching file contents
-      fetchFileContentsFromCode(user_id, fileNo);
-    //console.log(fetchContent);
-    }else{
-      fetchFileContentsFromText(user_id, fileNo);
+  try {
+    if (validateField()) {
+      if (window.location.href.includes("codeEditor")) {
+        //Fetching file contents
+        var fetchContent = fetchFileContentsFromCode(user_id, fileName);
+        //console.log(fetchContent);
+      } else {
+        fetchFileContentsFromText(user_id, fileName);
+      }
     }
-    alert("File Successfully loaded.");
-  }
-  catch(err){
+  } catch (err) {
 
   }
 }
 
 /**
  * Method to fetch contents of file from the firebase
- * @param {user id} user_id
- * @param {file which to download} fileNo
+ * @param {user id} user_id 
+ * @param {file which to download} fileNo 
  */
-function fetchFileContentsFromText(user_id, fileNo){
+function fetchFileContentsFromText(user_id, fileName) {
   var fileContents;
-  var ref = firebase.database().ref('Files/' + '/TextEditor/' + user_id +  fileNo);
+  var ref = firebase.database().ref('Files/' + '/TextEditor/' + user_id + "/" + fileName);
 
-  ref.once("value", function(snapshot) {
+  ref.once("value", function (snapshot) {
 
     console.log(snapshot.val());
+    if (snapshot.val() === null) {
+      alert("File does not exists");
+    } else {
 
-    fileContents = snapshot.val().filecontent;
+      fileContents = snapshot.val().filecontent;
 
-    //Temporary fix to display in textEditor
-    tinymce.get("textEditor").setContent(fileContents);
+      //Temporary fix to display in textEditor
+      tinymce.get("textEditor").setContent(fileContents);
+      alert("File Successfully loaded.");
 
-    console.log(fileContents);
-
+      console.log(fileContents);
+    }
   }, function (error) {
+    alert("File not exists");
     console.log("Error: " + error.code);
   });
 
@@ -322,31 +332,37 @@ function fetchFileContentsFromText(user_id, fileNo){
 
 /**
  * Method to fetch contents of file from the firebase
- * @param {user id} user_id
- * @param {file which to download} fileNo
+ * @param {user id} user_id 
+ * @param {file which to download} fileNo 
  */
-function fetchFileContentsFromCode(user_id, fileNo){
+function fetchFileContentsFromCode(user_id, fileName) {
   var fileContents;
-  var ref = firebase.database().ref('Files/' + '/CodeConvertor/' + user_id +  fileNo);
+  var ref = firebase.database().ref('Files/' + '/CodeConvertor/' + user_id + "/" + fileName);
 
-  ref.once("value", function(snapshot) {
+  ref.once("value", function (snapshot) {
 
     console.log(snapshot.val());
 
-    fileContents = snapshot.val().filecontent;
+    if (snapshot.val() === null) {
+      alert("File does not exists");
+    } else {
+      fileContents = snapshot.val().filecontent;
 
-     //Temporary fix to display text in code convertor
-     /**
-     * Setting the downloaded contents back to editor
-     */
+      //Temporary fix to display text in code convertor
+      /**
+       * Setting the downloaded contents back to editor
+       */
       var editor = ace.edit("codeEditor");
 
       //Setting text back to the editor
       editor.setValue(fileContents);
+      alert("File Successfully loaded.");
 
-    console.log(fileContents);
+      console.log(fileContents);
+    }
 
   }, function (error) {
+    alert("File does not exists");
     console.log("Error: " + error.code);
   });
 
@@ -356,23 +372,39 @@ function fetchFileContentsFromCode(user_id, fileNo){
 /**
  * Method to get contents from the editor
  */
-function toGetContents(){
+function toGetContents() {
   var url = window.location.href;
   var text;
   console.log(url);
 
-  if(url.includes("codeConvertor")){
+  if (url.includes("codeEditor")) {
     //Accessing the editor
-	var editor = ace.edit("codeEditor");
+    var editor = ace.edit("codeEditor");
 
-	//Getting text form the editor
-  text = editor.getValue();
+    //Getting text form the editor
+    text = editor.getValue();
 
-  return text;
-  }else{
+    return text;
+  } else {
     //var textEditor = document.getElementById('textEditor');
-    text = tinymce.get("textEditor").getContent({format: 'raw'});
+    text = tinymce.get("textEditor").getContent({
+      format: 'raw'
+    });
     console.log(text);
     return text;
+  }
+}
+
+function validateField() {
+  //#, [, ], *, or ?
+  var fileName = document.getElementById("filename").value;
+  if (fileName == "") {
+    alert("Enter file name");
+    return false;
+  } else if (fileName.includes(".") || fileName.includes("#") || fileName.includes("[") || fileName.includes("]") || fileName.includes("*") || fileName.includes("?")) {
+    alert("Please don't use speacial characters");
+    return false;
+  } else {
+    return true;
   }
 }
