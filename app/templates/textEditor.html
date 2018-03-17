@@ -5,23 +5,6 @@
 <div class="col s9 m6">
    <div class="container" style="width:66%;">
 		<div class="welcome">
-			<!-- Code for text field and button -->
-				<div class="row">
-					<div class="input-field col s8">
-						<input placeholder="filename" id="filename" type="text" class="validate black-text">
-						<label for="file_name">File Name</label>
-					</div>
-					<div class="col s2">
-						<a href="#!" class="btn blue lighten-1 waves-effect waves-light right" onclick="writeUserData();">
-							<i class="material-icons left">save</i>Save</a>
-					</div>
-
-					<div class="col s2">
-						<a href="#!" class="btn blue lighten-1 waves-effect waves-light right-align" onclick="setContentInEditor();">
-							<i class="material-icons left">refresh</i>Load</a>
-					</div>
-				</div>
-
 			<h1 class="header" id="details">Welcome to Smart Text Editor</h1>
 		</div>
 		<div class="welcome">
@@ -94,10 +77,24 @@
 					<option value='ukr'     > Ukrainian             </option>
 					<option value='vie'     > Vietnamese            </option>
 			</select>
+			<!-- Code for text field and button -->
+				<div class="row">
+					<div class="input-field col s8">
+						<input placeholder="filename" id="filename" type="text" class="validate black-text">
+						<label for="file_name">File Name</label>
+					</div>
+					<div class="col s2">
+						<a href="#!" class="btn blue lighten-1 waves-effect waves-light right" onclick="writeUserData();">
+							<i class="material-icons left">save</i>Save</a>
+					</div>
+
+					<div class="col s2">
+						<a href="#!" class="btn blue lighten-1 waves-effect waves-light right-align" onclick="setContentInEditor();">
+							<i class="material-icons left">refresh</i>Load</a>
+					</div>
+				</div>
 
 			<textarea class="tinymce " id="textEditor"></textarea>
-			<a href="#!" class="btn blue lighten-1 waves-effect waves-light" onclick="writeUserData();"><i class="material-icons left">save</i>Save</a>
-			<a href="#!" class="btn blue lighten-1 waves-effect waves-light" onclick="setContentInEditor();"><i class="material-icons left">refresh</i>Re-load the data</a>
 		</div>
  	</div>
 </div>
