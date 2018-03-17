@@ -8,6 +8,23 @@
 			<h1 class="header" id="details">Welcome to Code Convertor</h1>
 		</div>
 		<div class="welcome">
+			<!-- Code for text field and button -->
+				<div class="row">
+					<div class="input-field col s8">
+						<input placeholder="filename" id="filename" type="text" class="validate black-text">
+						<label for="file_name">File Name</label>
+					</div>
+					<div class="col s2">
+						<a href="#!" class="btn blue lighten-1 waves-effect waves-light right" onclick="writeUserData();">
+							<i class="material-icons left">save</i>Save</a>
+					</div>
+
+					<div class="col s2">
+						<a href="#!" class="btn blue lighten-1 waves-effect waves-light right-align" onclick="setContentInEditor();">
+							<i class="material-icons left">refresh</i>Load</a>
+					</div>
+				</div>
+
   	    	<h5 style="color:#000; font-size:22px; line-height:110%; margin: 0px 13px 10px 10px;">Select language</h5>
    		 	<select id="languages" class="select-show blue darken-2 left" required>
     	    	<option value="c" selected> C </option>
