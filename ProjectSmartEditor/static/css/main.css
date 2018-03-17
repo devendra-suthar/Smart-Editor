@@ -29,6 +29,7 @@ body{
 	color:#4d4d4e;
 	font-size:8px;
 	font-family:Verdana, Geneva, sans-serif;
+	overflow:scroll;
 }
 
 /*--- header files -----*/
@@ -225,29 +226,14 @@ progress{
   padding-top:17px;
 }
 
-#log1{
-	color: white;
-	font-size: 13px;
-	font-variant-caps: all-petite-caps;
-	position: fixed;
-	width: 17%;;
-    padding-top: 30px;
-	text-align: left;
-	right:0;
-	top:0;
-    background-color: #f8f8f8;
-	height: 100%;
-	overflow:scroll;
-}
-
-
 /*----------- ****************** ---------*/
 
 /*------------ Text Editor -------------*/
 
 #log{
 	color: black;
-	padding-left:20px;
+	padding-left:10%;
+	top:0
 }
 
 .mce-branding{color:#FDFDFD!important}

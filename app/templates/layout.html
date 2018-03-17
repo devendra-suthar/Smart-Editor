@@ -13,13 +13,13 @@
 
 </head>
 
-<body onload="getDetails();" class="white lighten-4">
+<body onload="getDetails();" class="white">
 	<div class="col s3">
-		<div class="sidenav blue-grey lighten-5">
+		<div class="sidenav blue-grey lighten-5 z-depth-5">
 			<div class="user-view blue-grey lighten-3">
 				<a title="Smart Editor">
 					<img class="responsive-img circle" src="../static/images/icons8-contacts-96.png">
-					<span class="text" style="margin-left:10px; margin-top:-28px; padding-botton:20px; font-size:24px; text-align:center white-space: normal; word-wrap: break-word;;"
+					<span class="text" style="margin-left:10px; margin-top:-28px; padding-botton:20px; font-size:24px; text-align:center; white-space: normal; word-wrap: break-word;"
 					    id="details" class="text"></span>
 				</a>
 			</div>
@@ -45,17 +45,16 @@
 			<button class="dropdown-btn">
 				<a href="#" title="Tools">
 					<i id="fa fa-caret-down" class="material-icons">list</i>
-					</span>
 					<span class="text">Tools</span>
 				</a>
 			</button>
-			<div class="dropdown-container">
-				<a href="{% url 'home' %}" title="notes">
-					<span class="icon-home">
-						<i class="material-icons">note</i>
-					</span>
-					<span class="text">Notes</span>
-				</a>
+			<div class="dropdown-container blue-grey lighten-4">
+				<!--<a href="{% url 'home' %}" title="notes">-->
+					<!--<span class="icon-home">-->
+						<!--<i class="material-icons">note</i>-->
+					<!--</span>-->
+					<!--<span class="text">Notes</span>-->
+				<!--</a>-->
 				<a href="{% url 'textEditor' %}" id="editor" title="editor" onclick="openPage();">
 					<span class="icon-home">
 						<i class="material-icons">border_color</i>
@@ -94,6 +93,14 @@
 				</span>
 				<span class="text">Log-Out</span>
 			</a>
+		</div>
+	</div>
+	<div class="container right " style="width:83%;">
+		<div class="welcome z-depth-2 light-blue accent-4">
+			<h1 class="header">
+				<span class="text" style="margin-left:20px; margin-top:-28px; font-size:30px; color:white;">
+					<i class="material-icons">bubble_chart</i>   Smart Editor</span>
+			</h1>
 		</div>
 	</div>
 	{% block content %} {% endblock %}

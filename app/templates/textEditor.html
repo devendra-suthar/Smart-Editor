@@ -1,18 +1,10 @@
 {% extends "layout.html" %} {% load staticfiles %} {% block content %}
 
-<div class="container" style="width:66%;">
-	<div class="welcome ">
-		<h1 class="header">
-			<span class="text" style="margin-left:20px; margin-top:-28px; font-size:25px;">
-				<i class="material-icons">bubble_chart</i>Smart Editor</span>
-		</h1>
-	</div>
-</div>
-<div class="container" style="width:64%;">s
-	<div class="row">
+<div class="container right" style="width:83%;">
+	<div class="row" style="margin-top:3%;">
 		<div class="col s10 m3 offset-s1 offset-m1">
-			<h5 style="color:#000; font-size:15px; line-height:80%; margin: 0px 10px 8px 8px;">Select language</h5>
-			<select id="langsel" class="select-show blue darken-2" onchange="window.lastFile && recognizeFile(window.lastFile)">
+			<h5 style="font-size:15px; color:black; line-height:80%; margin: 0px 10px 8px 8px;">Select language</h5>
+			<select id="langsel" class="select-show grey lighten-4" style="color:black;" onchange="window.lastFile && recognizeFile(window.lastFile)">
 				<option value='afr'> Afrikaans </option>
 				<option value='ara'> Arabic </option>
 				<option value='aze'> Azerbaijani </option>
@@ -82,48 +74,48 @@
 			</select>
 		</div>
 		<!-- Code for text field and button -->
-		<div class="col s10 m3 offset-s1">
-			<label for="file_name" style="color:#000; font-size:14px; line-height:110%; margin: 10px 8px 5px 5px;">File Name</label>
-			<input placeholder="Please Enter a FileName" id="filename" type="text" class="validate black-text input-field">
+		<div class="col s10 m3 offset-s1 ">
+			<label for="file_name" style="color:black; font-size:14px; margin: 10px 8px 5px 5px;">File Name</label>
+			<input placeholder=" Please Enter a FileName" id="filename" type="text" class="validate black-text input-field  grey lighten-4">
 		</div>
 		<div class="col s6 m2">
-			<a href="#!" class="btn blue lighten-1 waves-effect waves-light right " onclick="writeUserData();">
+			<a href="#!" class="btn light-blue accent-4 waves-effect waves-light right " style="margin: 25px 8px 5px 5px;" onclick="writeUserData();">
 				<i class="material-icons left">save</i>Save</a>
 		</div>
 
 		<div class="col s6 m2">
-			<a href="#!" class="btn blue lighten-1 waves-effect waves-light left" onclick="setContentInEditor();">
+			<a href="#!" class="btn light-blue accent-4 waves-effect waves-light left" style="margin: 25px 8px 5px 5px;"  onclick="setContentInEditor();">
 				<i class="material-icons left">refresh</i>Load</a>
 		</div>
 	</div>
-	<textarea class="tinymce " id="textEditor"></textarea>
-</div>
-</div>
-
-<div class="col s12 m3">
-	<div id="log1">
-		<div id="log"></div>
-	</div>
-	<div class="fixed-action-btn vertical click-to-toggle">
-		<a class="btn-floating btn-large #00B7C3">
-			<i class="material-icons">add</i>
-		</a>
-		<ul>
+	<div class="container" style="width:90%;">
+		<textarea class="tinymce " id="textEditor"></textarea>
+		<ul class="collapsible popout" data-collapsible="expandable" style="font-size:16px;">
 			<li>
-				<a class="btn-floating green" title="Camera">
-					<i class="material-icons">camera_alt</i>
-				</a>
-			</li>
-			<li>
-				<a class="btn-floating blue" title="Upload Files" href="javascript:void(0)" id="upload">
-					<i class="material-icons">file_upload</i>
-				</a>
-				<input id="upload-file" type="file" onchange="recognizeFile(window.lastFile=this.files[0])" />
+				<div class="collapsible-header grey lighten-2"><i class="material-icons">find_in_page</i>OCR Output</div>
+				<div class="collapsible-body white" id="log1"><div id="log"></div></div>
 			</li>
 		</ul>
 	</div>
-
-
+	<div class="fixed-action-btn vertical click-to-toggle">
+	<a class="btn-floating btn-large #00B7C3">
+		<i class="material-icons">add</i>
+	</a>
+	<ul>
+		<li>
+			<a class="btn-floating green" title="Camera">
+				<i class="material-icons">camera_alt</i>
+			</a>
+		</li>
+		<li>
+			<a class="btn-floating blue" title="Upload Files" href="javascript:void(0)" id="upload">
+				<i class="material-icons">file_upload</i>
+			</a>
+			<input id="upload-file" type="file" onchange="recognizeFile(window.lastFile=this.files[0])" />
+		</li>
+	</ul>
+	</div>
+</div>
 	<script type="text/javascript" src="{% static 'plugins/tinymce/tinymce.min.js' %}"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script>
@@ -132,7 +124,10 @@
 			height: 300,
 			menubar: true
 		});
-	</script> -->
+		$(document).ready(function(){
+		$('.collapsible').collapsible();
+	  });
+	</script>
 	<script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
 	<script type="text/javascript" src="{% static 'js/ocr.js' %}"></script>
 	{% endblock %}
