@@ -17,7 +17,7 @@
 	<div class="col s3">
 		<div class="sidenav blue-grey lighten-5 z-depth-5">
 			<div class="user-view blue-grey lighten-3">
-				<a title="Smart Editor">
+				<a title="Smart Editor truncate">
 					<img class="responsive-img circle" src="../static/images/icons8-contacts-96.png">
 					<span class="text" style="margin-left:10px; margin-top:-28px; padding-botton:20px; font-size:24px; text-align:center; white-space: normal; word-wrap: break-word;"
 					    id="details" class="text"></span>
@@ -41,6 +41,12 @@
 					<i class="material-icons">folder</i>
 				</span>
 				<span class="text">My Files</span>
+			</a>
+			<a href="#" title="Virtual Lab">
+				<span class="icon-home">
+					<i class="material-icons">airplay</i>
+				</span>
+				<span class="text">Virtual Lab</span>
 			</a>
 			<button class="dropdown-btn">
 				<a href="#" title="Tools">
@@ -68,7 +74,7 @@
 					<span class="text">Code Convertor</span>
 				</a>
 			</div>
-			<a href="#" title="account circle" onclick="logOut();">
+			<a href="#modal1" title="Inbox" class="modal-trigger">
 				<span class="icon-home">
 					<i class="material-icons">forum</i>
 				</span>
@@ -95,10 +101,22 @@
 			</a>
 		</div>
 	</div>
-	<div class="container right " style="width:83%;">
+
+	<!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Inbox</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+	<div class="container center " style="width:83%;margin-left:17%;">
 		<div class="welcome z-depth-2 light-blue accent-4">
 			<h1 class="header">
-				<span class="text" style="margin-left:20px; margin-top:-28px; font-size:30px; color:white;">
+				<span style="margin-left:22px; margin-top:-28px; padding:10px 10px 10px 10px;font-size:30px; color:white;">
 					<i class="material-icons">bubble_chart</i>   Smart Editor</span>
 			</h1>
 		</div>
@@ -108,10 +126,10 @@
 	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/firebase.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/sidenav.js' %}"></script>
 	<script>
-		$(".button-collapse").sideNav();
+		$(".modal").modal();
 	</script>
 </body>
 

@@ -1,8 +1,8 @@
 {% extends "layout.html" %} {% load staticfiles %} {% block content %}
 
-<div class="container right" style="width:83%;">
+<div class="container center" style="width:83%; margin-left:17%;">
 	<div class="row" style="margin-top:3%;">
-		<div class="col s10 m3 offset-s1 offset-m1">
+		<div class="col s10 m2 offset-s1 offset-m1">
 			<h5 style="font-size:15px; color:black; line-height:80%; margin: 0px 10px 8px 8px;">Select language</h5>
 			<select id="languages" class="select-show grey lighten-4" style="color:black;" required>
 				<option value="c" selected> C </option>
@@ -15,12 +15,12 @@
 			<label for="file_name" style="color:black; font-size:14px; margin: 10px 8px 5px 5px;">File Name</label>
 			<input placeholder=" Please Enter a FileName" id="filename" type="text" class="validate black-text input-field  grey lighten-4">
 		</div>
-		<div class="col s6 m2">
-			<a href="#!" class="btn light-blue accent-4 waves-effect waves-light right " style="margin: 25px 8px 5px 5px;" onclick="writeUserData();">
+		<div class="col s6 m3">
+			<a href="#!" class="btn light-blue accent-4 waves-effect waves-light" style="margin: 25px 8px 5px 5px;" onclick="writeUserData();">
 				<i class="material-icons left">save</i>Save</a>
 		</div>
 
-		<div class="col s6 m2">
+		<div class="col s6 m3">
 			<a href="#!" class="btn light-blue accent-4 waves-effect waves-light left" style="margin: 25px 8px 5px 5px;"  onclick="setContentInEditor();">
 				<i class="material-icons left">refresh</i>Load</a>
 		</div>
@@ -29,9 +29,9 @@
 		<div id="codeEditor" style="width:100%;">Your code...</div>
 		<!-- Button for compile and run the code-->
 		<div class="row">
-			<div class="col s6 m2"  style="margin: 1% 0% -1% 81%;">
-				<a href="#!" class="btn green accent-4 waves-effect waves-light right" onclick="makeCorsRequest();">
-					<i class="material-icons">play_arrow</i> Compile</a>
+			<div class="col s12 m12"  style="padding-top:2%;">
+				<a href="#!" class="btn green accent-4 waves-effect waves-light center" onclick="makeCorsRequest();">
+					<i class="material-icons left">play_arrow</i> Compile</a>
 			</div>
 		</div>
 		<!-- Div for displaying the output-->
@@ -78,11 +78,12 @@
 </div>
 
 <script type="text/javascript" src="{% static 'plugins/ace/src/ace.js' %}" charset="utf-8"></script>
-<!-- <script src="src/theme-twilight.js" type="text/javascript" charset="utf-8"></script> -->
+<script type="text/javascript" src="{% static 'plugins/ace/theme/monokai.js' %}" charset="utf-8"></script>
 <script>
 	var codeEditor = ace.edit("codeEditor");
 	//codeEditor.resize();
-	//codeEditor.setTheme("ace/theme/twilight")
+	codeEditor.setTheme("ace/theme/monokai");
+	editor.setMode("ace/mode/python");
 </script>
 <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
