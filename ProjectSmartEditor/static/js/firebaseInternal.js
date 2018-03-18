@@ -439,3 +439,29 @@ function addMessage(msg){
     message.appendChild(text);
     return message;
 }
+
+function subscribeToLab(){
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            var user = firebase.auth().currentUser;
+
+            if (user != null) {
+                var user_id = user.uid;
+                var email_id = user.email;
+                var name = user.displayName;
+                document.getElementById("details").innerHTML = email_id;
+                console.log(name);
+                console.log(email_id);
+                console.log("Signed In");
+                readInbox(user_id);
+                //        document.getElementsByTagName('body').style.cssText = 'display:block';
+            }
+
+        } else {
+            // No user is signed in.
+            window.location.href = "/";
+            console.log("Not signed in");
+        }
+    });
+}

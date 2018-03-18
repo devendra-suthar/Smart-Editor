@@ -16,38 +16,36 @@
 <body onload="getDetails();" class="white">
 	<div class="col s3">
 		<div class="sidenav blue-grey lighten-5 z-depth-5">
-			<div class="user-view blue-grey lighten-3">
+			<div class="user-view blue-grey lighten-4">
 				<a title="Smart Editor truncate">
 					<img class="responsive-img circle" src="../static/images/icons8-contacts-96.png">
 					<span class="text" style="margin-left:10px; margin-top:-28px; padding-botton:20px; font-size:24px; text-align:center; white-space: normal; word-wrap: break-word;"
 					    id="details" class="text"></span>
 				</a>
 			</div>
-
-			<!--<a title="Smart Editor" style="background:#f8f8f8; color:black;">-->
-			<!--<span class="icon-home">-->
-			<!--<i class="material-icons left">bubble_chart</i>-->
-			<!--</span>-->
-			<!--<span class="text" style="margin-left:20px; margin-top:-28px; font-size:25px;">Smart Editor</span>-->
-			<!--</a>-->
+			<button class="dropdown-btn">
 			<a href="{% url 'home' %}" title="Home" class="active">
 				<span class="icon-home">
 					<i class="material-icons left">home</i>
 				</span>
 				<span class="text">Home</span>
 			</a>
+			</button>
+			<button class="dropdown-btn">
 			<a href="#" title="Files">
 				<span class="icon-home">
 					<i class="material-icons left">folder</i>
 				</span>
 				<span class="text">My Files</span>
 			</a>
-			<a href="#" title="Virtual Lab">
+			</button>
+			<button class="dropdown-btn">
+			<a href="#modal2" title="Virtual Lab" class="modal-trigger">
 				<span class="icon-home">
 					<i class="material-icons left">airplay</i>
 				</span>
 				<span class="text">Virtual Lab</span>
-			</a>
+			</a></button>
 			<button class="dropdown-btn">
 				<a href="#" title="Tools">
 					<i id="fa fa-caret-down" class="material-icons left">list</i>
@@ -55,12 +53,6 @@
 				</a>
 			</button>
 			<div class="dropdown-container blue-grey lighten-4">
-				<!--<a href="{% url 'home' %}" title="notes">-->
-					<!--<span class="icon-home">-->
-						<!--<i class="material-icons left">note</i>-->
-					<!--</span>-->
-					<!--<span class="text">Notes</span>-->
-				<!--</a>-->
 				<a href="{% url 'textEditor' %}" id="editor" title="editor" onclick="openPage();">
 					<span class="icon-home">
 						<i class="material-icons left">border_color</i>
@@ -74,51 +66,71 @@
 					<span class="text">Code Convertor</span>
 				</a>
 			</div>
+			<button class="dropdown-btn">
 			<a href="#modal1" title="Inbox" class="modal-trigger">
 				<span class="icon-home">
 					<i class="material-icons left">forum</i>
 				</span>
-				<span id="badgeValue" class="new badge teal lighten-3 black-text" style="font-weight:500;"><b>0</span>
+				<span id="badgeValue" class="new badge teal lighten-3 black-text" style="font-weight:500;">
+					<b>0</span>
 				<!--<span id="badgeValue" class="chip teal lighten-3 right black-text"><b>0</b></span>-->
 				<span class="text">Inbox</span>
 			</a>
+			</button>
+			<button class="dropdown-btn">
 			<a href="#" title="Trash">
 				<span class="icon-home">
 					<i class="material-icons left">delete</i>
 				</span>
 				<span class="text">Delete</span>
 			</a>
+			</button>
+			<button class="dropdown-btn">
 			<a href="#" title="Settings">
 				<span class="icon-home">
 					<i class="material-icons left">settings</i>
 				</span>
 				<span class="text">Settings</span>
 			</a>
-			<a href="#" title="account circle" onclick="logOut();">
+			</button>
+			<button class="dropdown-btn">
+			<a href="#" title="Log out" onclick="logOut();">
 				<span class="icon-home">
 					<i class="material-icons left">add</i>
 				</span>
 				<span class="text">Log-Out</span>
 			</a>
+			</button>
 		</div>
 	</div>
 
 	<!-- Modal Structure -->
-  <div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h4 class="teal-text" style="font-size:20px;">Messages</h4>
-      <ul id="inbox" class="collection" style="font-size:16px;"></ul>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
-  </div>
+	<div id="modal1" class="modal bottom-sheet">
+		<div class="modal-content">
+			<h4 class="teal-text" style="font-size:20px;">Messages<a href="#!" class="modal-action modal-close waves-effect waves-green right">X</a></h4>
+			<ul id="inbox" class="collection" style="font-size:16px;"></ul>
+		</div>
+		<!--<div class="modal-footer">-->
+
+		<!--</div>-->
+	</div>
+
+	<div id="modal2" class="modal modal-fixed-footer" style="width:52%; height:30%; font-size:16px;">
+		<div class="modal-content">
+			<h4 class="teal-text" style="font-size:20px;">Subscribe to Virtual Lab</h4>
+			<p style="font-weight:400;">By subscribing to our Virtual Lab, you will get latest updates about new Code Practice assignments.<br>Click on `Yes` if you would like to subscribe to it.</p>
+		</div>
+		<div class="modal-footer">
+			<button href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">No</button>
+			<button onclick="subscribeToLab" class="modal-action modal-close waves-effect waves-green btn-flat ">Yes</button>
+		</div>
+	</div>
 
 	<div class="container center " style="width:83%;margin-left:17%;">
 		<div class="welcome">
 			<h1 class="header">
 				<span style="margin-left:22px; margin-top:-28px; padding:10px 10px 10px 10px;font-size:30px; color:black;">
-					<i class="material-icons">bubble_chart</i>   Smart Editor</span>
+					<i class="material-icons">bubble_chart</i> Smart Editor</span>
 			</h1>
 		</div>
 	</div>

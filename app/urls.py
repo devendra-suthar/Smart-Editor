@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('home/', views.home, name='home'),
     path('textEditor/', views.textOCR, name='textEditor'),
-    path('codeEditor/', views.codeOCR, name='codeConverter')
+    path('codeEditor/', views.codeOCR, name='codeConverter'),
+    path('virtualLab/', views.virtualLab, name='virtualLab')
     # path('app/', include('app.urls'))
 ]
