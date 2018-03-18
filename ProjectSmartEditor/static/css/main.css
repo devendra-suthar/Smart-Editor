@@ -179,7 +179,7 @@ progress{
 .welcome{
   background-color: #fff;
   color: #fff;
-  position: relative;
+  position: inherit;
   height: 73px;
   text-align: left;
   border-bottom: 1px solid #e7e7e7;

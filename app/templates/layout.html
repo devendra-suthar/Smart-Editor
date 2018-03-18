@@ -26,76 +26,77 @@
 
 			<!--<a title="Smart Editor" style="background:#f8f8f8; color:black;">-->
 			<!--<span class="icon-home">-->
-			<!--<i class="material-icons">bubble_chart</i>-->
+			<!--<i class="material-icons left">bubble_chart</i>-->
 			<!--</span>-->
 			<!--<span class="text" style="margin-left:20px; margin-top:-28px; font-size:25px;">Smart Editor</span>-->
 			<!--</a>-->
 			<a href="{% url 'home' %}" title="Home" class="active">
 				<span class="icon-home">
-					<i class="material-icons">home</i>
+					<i class="material-icons left">home</i>
 				</span>
 				<span class="text">Home</span>
 			</a>
 			<a href="#" title="Files">
 				<span class="icon-home">
-					<i class="material-icons">folder</i>
+					<i class="material-icons left">folder</i>
 				</span>
 				<span class="text">My Files</span>
 			</a>
 			<a href="#" title="Virtual Lab">
 				<span class="icon-home">
-					<i class="material-icons">airplay</i>
+					<i class="material-icons left">airplay</i>
 				</span>
 				<span class="text">Virtual Lab</span>
 			</a>
 			<button class="dropdown-btn">
 				<a href="#" title="Tools">
-					<i id="fa fa-caret-down" class="material-icons">list</i>
+					<i id="fa fa-caret-down" class="material-icons left">list</i>
 					<span class="text">Tools</span>
 				</a>
 			</button>
 			<div class="dropdown-container blue-grey lighten-4">
 				<!--<a href="{% url 'home' %}" title="notes">-->
 					<!--<span class="icon-home">-->
-						<!--<i class="material-icons">note</i>-->
+						<!--<i class="material-icons left">note</i>-->
 					<!--</span>-->
 					<!--<span class="text">Notes</span>-->
 				<!--</a>-->
 				<a href="{% url 'textEditor' %}" id="editor" title="editor" onclick="openPage();">
 					<span class="icon-home">
-						<i class="material-icons">border_color</i>
+						<i class="material-icons left">border_color</i>
 					</span>
 					<span class="text">Editor</span>
 				</a>
 				<a href="{% url 'codeConverter' %}" title="Code Convertor">
 					<span class="icon-home">
-						<i class="material-icons">code</i>
+						<i class="material-icons left">code</i>
 					</span>
 					<span class="text">Code Convertor</span>
 				</a>
 			</div>
 			<a href="#modal1" title="Inbox" class="modal-trigger">
 				<span class="icon-home">
-					<i class="material-icons">forum</i>
+					<i class="material-icons left">forum</i>
 				</span>
-				<span class="new badge blue">4</span>
+				<span id="badgeValue" class="new badge teal lighten-3 black-text" style="font-weight:500;"><b>0</span>
+				<!--<span id="badgeValue" class="chip teal lighten-3 right black-text"><b>0</b></span>-->
 				<span class="text">Inbox</span>
 			</a>
 			<a href="#" title="Trash">
 				<span class="icon-home">
-					<i class="material-icons">delete</i>
+					<i class="material-icons left">delete</i>
 				</span>
 				<span class="text">Delete</span>
 			</a>
 			<a href="#" title="Settings">
 				<span class="icon-home">
-					<i class="material-icons">settings</i>
+					<i class="material-icons left">settings</i>
 				</span>
 				<span class="text">Settings</span>
 			</a>
 			<a href="#" title="account circle" onclick="logOut();">
 				<span class="icon-home">
-					<i class="material-icons">add</i>
+					<i class="material-icons left">add</i>
 				</span>
 				<span class="text">Log-Out</span>
 			</a>
@@ -105,8 +106,8 @@
 	<!-- Modal Structure -->
   <div id="modal1" class="modal bottom-sheet">
     <div class="modal-content">
-      <h4>Inbox</h4>
-      <p>A bunch of text</p>
+      <h4 class="teal-text" style="font-size:20px;">Messages</h4>
+      <ul id="inbox" class="collection" style="font-size:16px;"></ul>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
@@ -114,9 +115,9 @@
   </div>
 
 	<div class="container center " style="width:83%;margin-left:17%;">
-		<div class="welcome z-depth-2 light-blue accent-4">
+		<div class="welcome">
 			<h1 class="header">
-				<span style="margin-left:22px; margin-top:-28px; padding:10px 10px 10px 10px;font-size:30px; color:white;">
+				<span style="margin-left:22px; margin-top:-28px; padding:10px 10px 10px 10px;font-size:30px; color:black;">
 					<i class="material-icons">bubble_chart</i>   Smart Editor</span>
 			</h1>
 		</div>
@@ -126,7 +127,7 @@
 	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/firebase.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/firebaseInternal.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/sidenav.js' %}"></script>
 	<script>
 		$(".modal").modal();

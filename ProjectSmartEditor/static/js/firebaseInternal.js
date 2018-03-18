@@ -112,6 +112,7 @@ function getDetails() {
                 console.log(name);
                 console.log(email_id);
                 console.log("Signed In");
+                readInbox(user_id);
                 //        document.getElementsByTagName('body').style.cssText = 'display:block';
             }
 
@@ -407,4 +408,35 @@ function validateField() {
     } else {
         return true;
     }
+}
+
+
+//Method to get a Users notifications
+function readInbox(user_id) {
+    var badgeValue = 0;
+    var inbox = document.getElementById('inbox');
+    var ref = firebase.database().ref('Inbox/' + user_id);
+    ref.once("value", function (snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            var childKey = childSnapshot.key;
+            var childData = childSnapshot.val();
+            if (!childData.seen){
+                badgeValue += 1;
+                console.log(badgeValue);
+                document.getElementById("badgeValue").textContent = badgeValue;
+            }
+        });
+    });
+    inbox.appendChild(addMessage("Hello"));
+    inbox.appendChild(addMessage("Hello2"));
+}
+
+
+function addMessage(msg){
+    var message = document.createElement('li');
+    message.setAttribute('class',"collection-item");
+    var text = document.createElement('p');
+    text.appendChild(document.createTextNode(msg));
+    message.appendChild(text);
+    return message;
 }
