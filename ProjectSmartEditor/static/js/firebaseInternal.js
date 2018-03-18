@@ -421,14 +421,13 @@ function readInbox(user_id) {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
             if (!childData.seen){
+//                firebase.database().ref('Inbox/' + user_id + '/' + childKey).update({"seen":true});
                 badgeValue += 1;
-                console.log(badgeValue);
+                inbox.appendChild(addMessage(childData.message));
                 document.getElementById("badgeValue").textContent = badgeValue;
             }
         });
     });
-    inbox.appendChild(addMessage("Hello"));
-    inbox.appendChild(addMessage("Hello2"));
 }
 
 
