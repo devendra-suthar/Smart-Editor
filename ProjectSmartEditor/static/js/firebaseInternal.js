@@ -440,28 +440,51 @@ function addMessage(msg){
     return message;
 }
 
-function subscribeToLab(){
+function checkSubscription(){
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
             var user = firebase.auth().currentUser;
-
             if (user != null) {
                 var user_id = user.uid;
-                var email_id = user.email;
-                var name = user.displayName;
-                document.getElementById("details").innerHTML = email_id;
-                console.log(name);
-                console.log(email_id);
-                console.log("Signed In");
-                readInbox(user_id);
-                //        document.getElementsByTagName('body').style.cssText = 'display:block';
+                var ref = firebase.database().ref('users/' + user_id);
+                ref.once("value", function (snapshot) {
+                    if (!snapshot.val().vLab){
+                        $('#modal2').modal('open');
+                    }
+                    else{
+                        window.location.href = "/virtualLab";
+                    }
+                });
             }
 
-        } else {
-            // No user is signed in.
-            window.location.href = "/";
-            console.log("Not signed in");
+        }
+    });
+
+}
+
+function subscribeToLab(){
+   firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            var user = firebase.auth().currentUser;
+            if (user != null) {
+//                firebase.database().ref('users/' + user.uid).update({"vLab":true});
+//                $('#modal3').modal('close');
+async function d() {
+                window.location.href = "/virtualLab";
+                await window.location.href.includes("virtialLab")
+                $('#modal3').modal('open');
+                Materialize.toast('I am a toast!', 4000)
+                };
+                d()
+            }
+
         }
     });
 }
+
+function sleep(delay) {
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + delay);
+      }

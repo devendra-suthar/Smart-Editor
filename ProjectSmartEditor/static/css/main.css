@@ -45,7 +45,7 @@ h2{
 /*----------- Sidenav for Dashboard ------------*/
 
 .sidenav{
-	position:absolute;
+	position:fixed;
 	width:17%;
 	height:100%;
 	/*left:2%;*/
@@ -74,23 +74,26 @@ h2{
     top:35% !important;
 }
 
-@media (max-width: 700px) {
-.modal-fixed-footer.open{
-    width:100% !important;
-}
+#modal3{
+    top:35% !important;
 }
 
 @media (max-width: 700px) {
-    .bottom-sheet.open{
+
+    .modal-fixed-footer.open{
+        width:100% !important;
+    }
+ .bottom-sheet.open{
         width:95% !important;
     }
-}
-
-@media (min-width: 700px) {
-    .bottom-sheet.open{
+        .bottom-sheet.open{
         width:50% !important;
     }
+    #modal3{
+     width:50% !important;
+    }
 }
+
 
 .sidenav .active{color:#9E7349;}
 
@@ -134,37 +137,39 @@ h2{
 }
 
 
-@media only screen and (max-width : 860px){
+@media only screen and (max-width : 500px){
   
   .text{
     display:none;
 	visibility:hidden;
   }
-  
+
   .sidenav, a{
    /* width: 70px;
     text-align:center;*/
+    padding-bottom:8px;
   }
-   
+
   a:hover{
     /*width:70px; */
+    padding-bottom:10px;
     z-index:1;
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid black;
-    box-shadow: 0 0 1px 1px black;
+
   }
-  
+
   a:hover  .text {
     display:block;
     /*padding-left:20%;*/
   }
 }
 
-@media (max-width : 1000px){
+@media only screen and (max-width : 600px){
   /*.sidenav, a{ width:60px;}*/
   .sidenav.lib a{font-size:8px;}
   /*span[class ^= "icon-"]{ left:4px;}*/
-  
+
   .sidenav.a{
 	padding-left:5px !important;
   }

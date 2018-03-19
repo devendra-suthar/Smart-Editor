@@ -39,8 +39,8 @@
 				<span class="text">My Files</span>
 			</a>
 			</button>
-			<button class="dropdown-btn">
-			<a href="#modal2" title="Virtual Lab" class="modal-trigger">
+			<button class="dropdown-btn" onclick="checkSubscription()">
+			<a title="Virtual Lab">
 				<span class="icon-home">
 					<i class="material-icons left">airplay</i>
 				</span>
@@ -122,7 +122,13 @@
 		</div>
 		<div class="modal-footer">
 			<button href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">No</button>
-			<button onclick="subscribeToLab" class="modal-action modal-close waves-effect waves-green btn-flat ">Yes</button>
+			<button onclick="subscribeToLab()" class="modal-action modal-close waves-effect waves-green btn-flat ">Yes</button>
+		</div>
+	</div>
+
+	<div id="modal3" class="modal" style="width:40%; height:20%; font-size:16px;">
+		<div class="modal-content">
+			<p style="font-weight:400;">You have been successfully subscribed to Virtual Lab contents.</p>
 		</div>
 	</div>
 
