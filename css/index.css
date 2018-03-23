@@ -182,22 +182,23 @@ body{
 .about_us{
 	float:left;
 	width:100%;
-	height:440px;
-	padding: 25px 20px 30px 20px;
+	/*height:440px;*/
+	padding: 4% 8%;
 	/*margin-top: 100px;*/
 	}
 
 .image{
 	float:left;
-	width:55%;
-	height:350px;
-	margin-left:100px;
+	width:50%;
+	/*height:350px;
+	margin-left:7%;*/
 	}
 
 .info{
 	float:left;
-	width:35%;
-	height:350px;
+	width:50%;
+	padding-left:5%;
+	/*height:350px;*/
 	}
 .code_convertor{
 	float:left;
@@ -206,7 +207,7 @@ body{
 	}
 	
 .des1{
-	width:228px;
+	width:65%;
 	height:100px;
 	margin:3px;
 	}
@@ -230,12 +231,6 @@ body{
 	height:200px;
 	}
 	
-.des2{
-	width:228px;
-	height:100px;
-	margin:3px;
-	}
-	
 .text_editor span{
 	float:left;
 	font-size:28px;
@@ -249,11 +244,19 @@ body{
 	font-family:Georgia, "Times New Roman", Times, serif
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 .contact_us{
 	float:left;
 	width:100%;
-	height:430px;
-	padding: 10px 20px 0px 20px;
+	padding: 30px 20px 0px 20px;
 	/*margin-top:100px;*/
 	}
 
@@ -262,23 +265,25 @@ body{
 	font-size:40px;
 	color:#000;
 	text-align:center;
-	margin-left: 558px;
+	padding-left:37%;
 	}
 	
 .mentor{
 	float:left;
-	height: 130px;
-	margin-left:300px;
-	margin-top: 40px;
+	width:100%;
+	padding:4% 10%;
+	/*margin-left:300px;
+	margin-top: 40px;*/
 	}
 
-.mentor li{float:left;
-	width:300px;
+.mentor li{
+	float:left;
+	width:30%;
 	height:130px;
-	margin-right: 150px;
+	margin:1% 10%;
 	}
-.mentor li:last-child{margin-right:0px;}
-.mentor li:first-child{margin-left:30px;}
+/*.mentor li:last-child{margin-right:0px;}
+.mentor li:first-child{margin-left:30px;}*/
 li .picture{
 	float: left;
 	width: 130px;
@@ -298,31 +303,31 @@ li .picture img{
 li .name h6{
 	float:left;
 	font-size:14px;
-	padding-right:5px;
-	margin-left:9px;
-	padding-top: 30px;
+	/*padding-right:5px;*/
+	margin-left:6%;
+	padding-top:9%;
 	}
 li .name p{
 	float:left;
-	font-size:15px;
-	padding-top:10px;
-	margin-left:9px;
+	font-size:14px;
+	padding-top:2%;
+	margin-left:6%;
 	}
 
-.team{float:left;
-width:100%;
-height:130px;
-margin-top:40px;
+.team{
+	float:left;
+	width:100%;
+	
 }
 
 .team li{
 	float:left;
 	width:20%;
 	height:130px;
-	margin-right:60px;
+	margin:1% 2%;
 	}
-.team li:last-child{margin-right:0px;}
-.team li:first-child{margin-left:60px;}
+/*.team li:last-child{margin-right:0px;}
+.team li:first-child{margin-left:60px;}*/
 
 .footer{
 	float:left;
@@ -352,6 +357,16 @@ margin-top:40px;
 	.form-module{
 		width:340px;	
 	}
+	.container, .image, .info{
+		width:100%;
+	}
+	.contact_us span{
+		padding-left:26%;
+		font-size:36px;
+	}
+	.team li{
+		width:100%;	
+	}
 }
 
 @media only screen and (max-width : 640px){
@@ -361,6 +376,27 @@ margin-top:40px;
 	}
 	.form-module{
 		width:300px;	
+	}
+	.container, .image, .info{
+		width:100%;
+	}
+	.contact_us span{
+		padding-left:22%;
+		font-size:33px;
+	}
+	.mentor{
+		padding:4% 5%;
+	}
+	.mentor li{
+		width:100%;
+		margin:5% 2%;
+	}
+	li .name p{
+		font-size:18px;
+	}
+	.team li{
+		width:100%;	
+		margin:5% 2%;
 	}
 }
 
@@ -384,5 +420,26 @@ margin-top:40px;
 	.form-module{
 		width:270px;	
 	}
-	.container{width:100%;}
+	.container, .image, .info{
+		width:100%;
+	}
+	.contact_us span{
+		padding-left:15%;
+		font-size:30px;
+	}
+	
+	.mentor{
+		padding:4% 5%;
+	}
+	.mentor li{
+		width:100%;
+		margin:5% 2%;
+	}
+	li .name p{
+		font-size:11px;
+	}
+	.team li{
+		width:100%;
+		margin:5% 2%;	
+	}
 }
