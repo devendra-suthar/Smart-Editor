@@ -6,6 +6,8 @@ function UserAction() {
 	//Getting text form the editor
 	var text = editor.getValue();
 	
+	var origURL = "https://api.jdoodle.com/v1/execute";
+	
 	var langOptions = document.getElementById("languages");
 	var language = langOptions.options[langOptions.selectedIndex].value;
 	console.log(language);
@@ -66,8 +68,9 @@ function getTitle(text) {
 function makeCorsRequest() {
   // This is a sample server that supports CORS.
   var url = 'https://api.jdoodle.com/execute';
-
-  var xhr = createCORSRequest('POST', url);
+  var corsURL = 'https://cors-anywhere.herokuapp.com/' + url;
+	
+  var xhr = createCORSRequest('POST', corsURL);
   if (!xhr) {
     alert('CORS not supported');
     return;
