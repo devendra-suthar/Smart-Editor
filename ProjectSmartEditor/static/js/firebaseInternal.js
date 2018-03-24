@@ -162,7 +162,8 @@ function writeUserData() {
             username: name,
             email: user_email,
             filesUser: true,
-            totalfiles: 1
+            totalfiles: 1,
+            vLab: false
         });
     } catch (err) {
 
