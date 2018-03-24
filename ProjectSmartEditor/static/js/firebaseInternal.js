@@ -417,7 +417,7 @@ function readInbox(user_id) {
     var badgeValue = 0;
     var inbox = document.getElementById('inbox');
     var ref = firebase.database().ref('Inbox/' + user_id);
-    ref.once("value", function (snapshot) {
+    ref.on("value", function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
