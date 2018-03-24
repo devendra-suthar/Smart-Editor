@@ -413,7 +413,7 @@ function validateField() {
 
 //Method to get a Users notifications
 function readInbox(user_id) {
-    var update = [];
+    var update = {};
     var badgeValue = 0;
     var inbox = document.getElementById('inbox');
     var ref = firebase.database().ref('Inbox/' + user_id);
@@ -427,7 +427,7 @@ function readInbox(user_id) {
                 badgeValue += 1;
                 inbox.appendChild(addMessage(childData.message));
                 document.getElementById("badgeValue").textContent = badgeValue;
-                update[childKey] = {
+                update = {
                     seen: true
                 };
                 firebase.database().ref('Inbox/' + user_id + '/' + childKey).update(update);
