@@ -474,6 +474,21 @@ function subscribeToLab() {
             if (user != null) {
                 //                firebase.database().ref('users/' + user.uid).update({"vLab":true});
                 //                $('#modal3').modal('close');
+                var user_id = user.uid;
+                var update ={};
+                var ref = firebase.database().ref('users/' + user_id);
+                ref.once("value", function (snapshot) {
+                    update = {
+                        vLab: true
+                    };
+                    firebase.database().ref('users/' + user_id).update(update);
+                    
+                    // if (!snapshot.val().vLab) {
+                    //     $('#modal2').modal('open');
+                    // } else {
+                    //     window.location.href = "/virtualLab";
+                    // }
+                });
                 async function d() {
                     window.location.href = "/virtualLab";
                     await window.location.href.includes("virtualLab")
