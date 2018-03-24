@@ -497,7 +497,6 @@ function subscribeToLab() {
                 };
                 d()
             }
-
         }
     });
 }
