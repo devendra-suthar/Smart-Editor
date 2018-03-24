@@ -421,8 +421,6 @@ function readInbox(user_id) {
         snapshot.forEach(function (childSnapshot) {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
-            console.log(childKey);
-            console.log(childData);
             if (!childData.seen) {
                 badgeValue += 1;
                 inbox.appendChild(addMessage(childData.message));
