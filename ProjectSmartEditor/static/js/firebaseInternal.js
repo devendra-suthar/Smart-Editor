@@ -282,7 +282,7 @@ function saveFileContentsFromCode(user_id, loc) {
         });
     } else {
         //Storing Virtual Lab contents in firebase
-        firebase.database().ref('VirtualLab/' + user_id + "/" + fileName).set({
+        firebase.database().ref('VirtualLab/' + '/Questions/' + user_id + "/" + fileName).set({
             filecontent: contents,
             shared: true
         });
