@@ -207,7 +207,7 @@ body{
 	}
 	
 .des1{
-	width:65%;
+	width:60%;
 	height:100px;
 	margin:3px;
 	}
@@ -360,12 +360,21 @@ li .name p{
 	.container, .image, .info{
 		width:100%;
 	}
+	.des1{
+		width:80%;
+	}
 	.contact_us span{
 		padding-left:26%;
 		font-size:36px;
 	}
 	.team li{
 		width:100%;	
+	}
+	.box1 p{
+		text-align:justify;
+	}
+	.des p{
+		text-align:justify;
 	}
 }
 
@@ -379,6 +388,9 @@ li .name p{
 	}
 	.container, .image, .info{
 		width:100%;
+	}
+	.des1{
+		width:80%;
 	}
 	.contact_us span{
 		padding-left:22%;
@@ -397,6 +409,12 @@ li .name p{
 	.team li{
 		width:100%;	
 		margin:5% 2%;
+	}
+	.box1 p{
+		text-align:justify;
+	}
+	.des p{
+		text-align:justify;
 	}
 }
 
@@ -427,6 +445,9 @@ li .name p{
 		padding-left:15%;
 		font-size:30px;
 	}
+	.des1{
+		width:80%;
+	}
 	
 	.mentor{
 		padding:4% 5%;
@@ -438,8 +459,20 @@ li .name p{
 	li .name p{
 		font-size:11px;
 	}
+	.info{
+		margin-top:20px;		
+	}
+	.team{
+		padding:4%;
+	}
 	.team li{
 		width:100%;
 		margin:5% 2%;	
+	}
+	.box1 p{
+		text-align:justify;
+	}
+	.des p{
+		text-align:justify;
 	}
 }
