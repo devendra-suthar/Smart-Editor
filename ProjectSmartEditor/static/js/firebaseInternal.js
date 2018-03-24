@@ -174,7 +174,7 @@ function writeUserData() {
 
     //Finding tota no of files saved by user
     var totalFileCount = totalFilesCount(user_id);
-    saveFileContents(user_id);
+    //saveFileContents(user_id);
 
     //console.log(fileContentsValue);
 }
@@ -222,7 +222,11 @@ function totalFilesCount(user_id) {
  * Helper method to distinguish between textEditor and codeConvertor
  * @param {Current user id} user_id
  */
-function saveFileContents(user_id) {
+function saveFileContents() {
+    
+    var user = firebase.auth().currentUser;
+    var user_id = user.uid;
+    
     if (validateField()) {
         if (window.location.href.includes("codeEditor")) {
             saveFileContentsFromCode(user_id, "codeEditor");
@@ -388,7 +392,7 @@ function toGetContents() {
     var text;
     console.log(url);
 
-    if (url.includes("codeEditor")) {
+    if (url.includes("codeEditor") || url.includes("virtualLab")) {
         //Accessing the editor
         var editor = ace.edit("codeEditor");
 
