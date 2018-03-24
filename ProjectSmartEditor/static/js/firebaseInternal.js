@@ -417,11 +417,11 @@ function readInbox(user_id) {
     var inbox = document.getElementById('inbox');
     var ref = firebase.database().ref('Inbox/' + user_id);
     ref.once("value", function (snapshot) {
-        snapshot.forEach(function(childSnapshot) {
+        snapshot.forEach(function (childSnapshot) {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
-            if (!childData.seen){
-//                firebase.database().ref('Inbox/' + user_id + '/' + childKey).update({"seen":true});
+            if (!childData.seen) {
+                //firebase.database().ref('Inbox/' + user_id + '/' + childKey).update({"seen":true});
                 badgeValue += 1;
                 inbox.appendChild(addMessage(childData.message));
                 document.getElementById("badgeValue").textContent = badgeValue;
@@ -431,16 +431,16 @@ function readInbox(user_id) {
 }
 
 
-function addMessage(msg){
+function addMessage(msg) {
     var message = document.createElement('li');
-    message.setAttribute('class',"collection-item");
+    message.setAttribute('class', "collection-item");
     var text = document.createElement('p');
     text.appendChild(document.createTextNode(msg));
     message.appendChild(text);
     return message;
 }
 
-function checkSubscription(){
+function checkSubscription() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
@@ -449,10 +449,9 @@ function checkSubscription(){
                 var user_id = user.uid;
                 var ref = firebase.database().ref('users/' + user_id);
                 ref.once("value", function (snapshot) {
-                    if (!snapshot.val().vLab){
+                    if (!snapshot.val().vLab) {
                         $('#modal2').modal('open');
-                    }
-                    else{
+                    } else {
                         window.location.href = "/virtualLab";
                     }
                 });
@@ -463,19 +462,19 @@ function checkSubscription(){
 
 }
 
-function subscribeToLab(){
-   firebase.auth().onAuthStateChanged(function (user) {
+function subscribeToLab() {
+    firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
             var user = firebase.auth().currentUser;
             if (user != null) {
-//                firebase.database().ref('users/' + user.uid).update({"vLab":true});
-//                $('#modal3').modal('close');
-async function d() {
-                window.location.href = "/virtualLab";
-                await window.location.href.includes("virtialLab")
-                $('#modal3').modal('open');
-                Materialize.toast('I am a toast!', 4000)
+                //                firebase.database().ref('users/' + user.uid).update({"vLab":true});
+                //                $('#modal3').modal('close');
+                async function d() {
+                    window.location.href = "/virtualLab";
+                    await window.location.href.includes("virtialLab")
+                    $('#modal3').modal('open');
+                    Materialize.toast('You are susbscribed.', 4000)
                 };
                 d()
             }
@@ -485,6 +484,6 @@ async function d() {
 }
 
 function sleep(delay) {
-        var start = new Date().getTime();
-        while (new Date().getTime() < start + delay);
-      }
+    var start = new Date().getTime();
+    while (new Date().getTime() < start + delay);
+}
