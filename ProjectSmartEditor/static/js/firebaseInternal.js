@@ -434,7 +434,6 @@ function readInbox(user_id) {
             }
         });
     });
-    document.getElementById("badgeValue").textContent = 0;
 }
 
 
