@@ -300,12 +300,14 @@ function setContentInEditor() {
 
     try {
         if (validateField()) {
-            if (window.location.href.includes("codeEditor") || window.location.href.includes("virtualLab")) {
+            if (window.location.href.includes("codeEditor")) {
                 //Fetching file contents
                 var fetchContent = fetchFileContentsFromCode(user_id, fileName, "codeEditor");
                 //console.log(fetchContent);
-            } else {
+            } else if(window.location.href.includes("textEditor")) {
                 fetchFileContentsFromText(user_id, fileName);
+            }else{
+                fetchFileContentsFromCode(user_id, fileName, "virtualLab");
             }
         }
     } catch (err) {
