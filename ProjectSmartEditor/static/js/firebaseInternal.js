@@ -223,10 +223,10 @@ function totalFilesCount(user_id) {
  * @param {Current user id} user_id
  */
 function saveFileContents() {
-    
+
     var user = firebase.auth().currentUser;
     var user_id = user.uid;
-    
+
     if (validateField()) {
         if (window.location.href.includes("codeEditor")) {
             saveFileContentsFromCode(user_id, "codeEditor");
@@ -280,7 +280,7 @@ function saveFileContentsFromCode(user_id, loc) {
             filecontent: contents,
             shared: true
         });
-    }else{
+    } else {
         //Storing Virtual Lab contents in firebase
         firebase.database().ref('VirtualLab/' + user_id + "/" + fileName).set({
             filecontent: contents,
@@ -300,9 +300,9 @@ function setContentInEditor() {
 
     try {
         if (validateField()) {
-            if (window.location.href.includes("codeEditor")) {
+            if (window.location.href.includes("codeEditor") || window.location.href.includes("virtualLab")) {
                 //Fetching file contents
-                var fetchContent = fetchFileContentsFromCode(user_id, fileName);
+                var fetchContent = fetchFileContentsFromCode(user_id, fileName, "codeEditor");
                 //console.log(fetchContent);
             } else {
                 fetchFileContentsFromText(user_id, fileName);
@@ -350,37 +350,68 @@ function fetchFileContentsFromText(user_id, fileName) {
  * @param {user id} user_id
  * @param {file which to download} fileNo
  */
-function fetchFileContentsFromCode(user_id, fileName) {
+function fetchFileContentsFromCode(user_id, fileName, loc) {
     var fileContents;
-    var ref = firebase.database().ref('Files/' + '/CodeConvertor/' + user_id + "/" + fileName);
 
-    ref.once("value", function (snapshot) {
+    if (loc === "codeEditor") {
+        var ref = firebase.database().ref('Files/' + '/CodeConvertor/' + user_id + "/" + fileName);
 
-        console.log(snapshot.val());
+        ref.once("value", function (snapshot) {
 
-        if (snapshot.val() === null) {
+            console.log(snapshot.val());
+
+            if (snapshot.val() === null) {
+                alert("File does not exists");
+            } else {
+                fileContents = snapshot.val().filecontent;
+
+                //Temporary fix to display text in code convertor
+                /**
+                 * Setting the downloaded contents back to editor
+                 */
+                var editor = ace.edit("codeEditor");
+
+                //Setting text back to the editor
+                editor.setValue(fileContents);
+                alert("File Successfully loaded.");
+
+                console.log(fileContents);
+            }
+
+        }, function (error) {
             alert("File does not exists");
-        } else {
-            fileContents = snapshot.val().filecontent;
+            console.log("Error: " + error.code);
+        });
+    }else{
+        var ref = firebase.database().ref('VirtualLab/' + user_id + "/" + fileName);
 
-            //Temporary fix to display text in code convertor
-            /**
-             * Setting the downloaded contents back to editor
-             */
-            var editor = ace.edit("codeEditor");
+        ref.once("value", function (snapshot) {
 
-            //Setting text back to the editor
-            editor.setValue(fileContents);
-            alert("File Successfully loaded.");
+            console.log(snapshot.val());
 
-            console.log(fileContents);
-        }
+            if (snapshot.val() === null) {
+                alert("File does not exists");
+            } else {
+                fileContents = snapshot.val().filecontent;
 
-    }, function (error) {
-        alert("File does not exists");
-        console.log("Error: " + error.code);
-    });
+                //Temporary fix to display text in code convertor
+                /**
+                 * Setting the downloaded contents back to editor
+                 */
+                var editor = ace.edit("codeEditor");
 
+                //Setting text back to the editor
+                editor.setValue(fileContents);
+                alert("File Successfully loaded.");
+
+                console.log(fileContents);
+            }
+
+        }, function (error) {
+            alert("File does not exists");
+            console.log("Error: " + error.code);
+        });
+    }
     return fileContents;
 }
 
