@@ -223,7 +223,7 @@ function totalFilesCount(user_id) {
  */
 function saveFileContents(user_id) {
     if (validateField()) {
-        if (window.location.href.includes("codeConvertor.html")) {
+        if (window.location.href.includes("codeEditor")) {
             saveFileContentsFromCode(user_id);
         } else {
             saveFileContentsFromText(user_id);
@@ -396,6 +396,9 @@ function toGetContents() {
     }
 }
 
+/**
+ * Method to validate input field of filename
+ */
 function validateField() {
     //#, [, ], *, or ?
     var fileName = document.getElementById("filename").value;
@@ -434,7 +437,10 @@ function readInbox(user_id) {
     });
 }
 
-
+/**
+ * Helper method to display message in Inbox
+ * @param {Message to display in notification} msg 
+ */
 function addMessage(msg) {
     var message = document.createElement('li');
     message.setAttribute('class', "collection-item");
@@ -444,6 +450,9 @@ function addMessage(msg) {
     return message;
 }
 
+/**
+ * Method to check user is subscribe or not
+ */
 function checkSubscription() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -466,6 +475,9 @@ function checkSubscription() {
 
 }
 
+/**
+ * Method to subscribe user to virtual lab
+ */
 function subscribeToLab() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
