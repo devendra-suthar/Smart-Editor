@@ -472,7 +472,7 @@ function subscribeToLab() {
                 //                $('#modal3').modal('close');
                 async function d() {
                     window.location.href = "/virtualLab";
-                    await window.location.href.includes("virtialLab")
+                    await window.location.href.includes("virtualLab")
                     $('#modal3').modal('open');
                     Materialize.toast('You are susbscribed.', 4000)
                 };
