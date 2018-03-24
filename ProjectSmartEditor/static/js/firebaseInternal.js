@@ -225,9 +225,11 @@ function totalFilesCount(user_id) {
 function saveFileContents(user_id) {
     if (validateField()) {
         if (window.location.href.includes("codeEditor")) {
-            saveFileContentsFromCode(user_id);
-        } else {
+            saveFileContentsFromCode(user_id, "codeEditor");
+        } else if (window.location.href.includes("textEditor")) {
             saveFileContentsFromText(user_id);
+        } else {
+            saveFileContentsFromCode(user_id, "virtualLab");
         }
         alert("File Successfully Saved");
         console.log("Data Saved");
@@ -258,7 +260,7 @@ function saveFileContentsFromText(user_id) {
  * Method to save file contents to firebase
  * @param {Current user id} user_id
  */
-function saveFileContentsFromCode(user_id) {
+function saveFileContentsFromCode(user_id, loc) {
     //var fileNo = "/file1";
     //Getting file name
     var fileName = document.getElementById("filename").value;
@@ -268,12 +270,19 @@ function saveFileContentsFromCode(user_id) {
      */
     var contents = toGetContents();
 
-    //Storing Files table in firebase
-    firebase.database().ref('Files/' + '/CodeConvertor/' + user_id + "/" + fileName).set({
-        filecontent: contents,
-        shared: true
-    });
-
+    if (loc === "codeEditor") {
+        //Storing Files table in firebase
+        firebase.database().ref('Files/' + '/CodeConvertor/' + user_id + "/" + fileName).set({
+            filecontent: contents,
+            shared: true
+        });
+    }else{
+        //Storing Virtual Lab contents in firebase
+        firebase.database().ref('VirtualLab/' + user_id + "/" + fileName).set({
+            filecontent: contents,
+            shared: true
+        });
+    }
 }
 
 /**
@@ -488,14 +497,14 @@ function subscribeToLab() {
                 //                firebase.database().ref('users/' + user.uid).update({"vLab":true});
                 //                $('#modal3').modal('close');
                 var user_id = user.uid;
-                var update ={};
+                var update = {};
                 var ref = firebase.database().ref('users/' + user_id);
                 ref.once("value", function (snapshot) {
                     update = {
                         vLab: true
                     };
                     firebase.database().ref('users/' + user_id).update(update);
-                    
+
                     // if (!snapshot.val().vLab) {
                     //     $('#modal2').modal('open');
                     // } else {
