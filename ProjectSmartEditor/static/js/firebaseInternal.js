@@ -289,6 +289,16 @@ function saveFileContentsFromCode(user_id, loc) {
             filecontent: contents,
             shared: true
         });
+        
+        var userRef = firebase.database().ref('users/');
+        userRef.once('value', function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                var childKey = childSnapshot.key;
+                var childData = childSnapshot.val();
+                console.log(childKey);
+                console.log(childData);
+            });
+        });
     }
 }
 
