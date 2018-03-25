@@ -290,6 +290,7 @@ function saveFileContentsFromCode(user_id, loc) {
             shared: true
         });
 
+        //Accessing all the user who are subscribed to Virtual Lab
         var userRef = firebase.database().ref('users/');
         userRef.once('value', function (snapshot) {
             snapshot.forEach(function (childSnapshot) {
@@ -300,7 +301,7 @@ function saveFileContentsFromCode(user_id, loc) {
                 if (childData.vLab) {
                     // var inboxRef = firebase.database().ref('Inbox/' + childKey);
 
-                    //Storing notifications
+                    //Storing notifications for user who are subscribe to Virtual Lab
                     firebase.database().ref('Inbox/' + childKey + '/' + fileName).set({
                         message: contents,
                         seen: false
