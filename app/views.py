@@ -21,6 +21,7 @@ def virtualLab(request):
 
 def myFiles(request):
     return render_to_response('files.html')
+    
 # def logInWithEmail(request):
 # if request.method == "POST":
 #     print("LoginWithEmail")

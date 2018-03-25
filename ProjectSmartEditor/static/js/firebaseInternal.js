@@ -112,6 +112,9 @@ function getDetails() {
                 console.log(name);
                 console.log(email_id);
                 console.log("Signed In");
+                if (window.location.href.includes("files")) {
+                    showFiles(user_id);
+                  }
                 readInbox(user_id);
                 //        document.getElementsByTagName('body').style.cssText = 'display:block';
             }
