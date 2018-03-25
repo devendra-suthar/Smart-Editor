@@ -304,9 +304,9 @@ function setContentInEditor() {
                 //Fetching file contents
                 var fetchContent = fetchFileContentsFromCode(user_id, fileName, "codeEditor");
                 //console.log(fetchContent);
-            } else if(window.location.href.includes("textEditor")) {
+            } else if (window.location.href.includes("textEditor")) {
                 fetchFileContentsFromText(user_id, fileName);
-            }else{
+            } else {
                 fetchFileContentsFromCode(user_id, fileName, "virtualLab");
             }
         }
@@ -384,7 +384,7 @@ function fetchFileContentsFromCode(user_id, fileName, loc) {
             alert("File does not exists");
             console.log("Error: " + error.code);
         });
-    }else{
+    } else {
         var ref = firebase.database().ref('VirtualLab/' + user_id + "/" + fileName);
 
         ref.once("value", function (snapshot) {
@@ -460,6 +460,79 @@ function validateField() {
     }
 }
 
+
+/**
+ * Method to fetch files from the firebase
+ */
+function showFiles(user_id) {
+
+    var cardRow = $('<ul>', {
+        class: 'collapsible popout',
+        collapsible: 'expandable',
+        style: 'margin-left:50px;width:40%;font-size:20px;font-family:Robotica'
+    });
+
+    var textEditorRef = firebase.database().ref('Files/' + '/TextEditor/' + user_id);
+    var codeRef = firebase.database().ref('Files/' + '/CodeConvertor/' + user_id);
+
+    /**
+     * For Text Editor files
+     */
+    textEditorRef.once('value', function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var childKey = childSnapshot.key;
+            var childData = childSnapshot.val();
+            console.log(childKey);
+            console.log(childData);
+
+            var card = cardRow.append($('<li>')
+                .append($('<div>', {
+                        class: 'collapsible-header'
+                    }).text(childKey).append(
+                        $('<i>', {
+                            class: 'material-icons left'
+                        }).text('description')
+                    ),
+                    $('<div>', {
+                        class: 'collapsible-body'
+                    }).append(
+                        $('<span>').text(childData.filecontent)
+                    )
+                ));
+
+            $("#files").append(card);
+            // ...
+        });
+    });
+
+    /**
+     * For code convertor files
+     */
+    codeRef.once('value', function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var childKey = childSnapshot.key;
+            var childData = childSnapshot.val();
+            console.log(childKey);
+            console.log(childData);
+
+            var card = cardRow.append($('<li>').append($('<div>', {
+                    class: 'collapsible-header'
+                }).text(childKey).append(
+                    $('<i>', {
+                        class: 'material-icons left'
+                    }).text('description')
+                ),
+                $('<div>', {
+                    class: 'collapsible-body'
+                }).append(
+                    $('<span>', {}).text(childData.filecontent)
+                )
+            ));
+
+            $("#files").append(card);
+        });
+    });
+}
 
 //Method to get a Users notifications
 function readInbox(user_id) {

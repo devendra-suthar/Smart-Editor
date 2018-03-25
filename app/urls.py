@@ -7,6 +7,7 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('textEditor/', views.textOCR, name='textEditor'),
     path('codeEditor/', views.codeOCR, name='codeConverter'),
+    path('files/', views.myFiles, name='files'),
     path('virtualLab/', views.virtualLab, name='virtualLab')
     # path('app/', include('app.urls'))
 ]
