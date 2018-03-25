@@ -388,7 +388,7 @@ function fetchFileContentsFromCode(user_id, fileName, loc) {
             console.log("Error: " + error.code);
         });
     } else {
-        var ref = firebase.database().ref('VirtualLab/' + user_id + "/" + fileName);
+        var ref = firebase.database().ref('VirtualLab/' + '/Questions/' + user_id + "/" + fileName);
 
         ref.once("value", function (snapshot) {
 
