@@ -114,7 +114,7 @@ function getDetails() {
                 console.log("Signed In");
                 if (window.location.href.includes("files")) {
                     showFiles(user_id);
-                  }
+                }
                 readInbox(user_id);
                 //        document.getElementsByTagName('body').style.cssText = 'display:block';
             }
@@ -289,7 +289,7 @@ function saveFileContentsFromCode(user_id, loc) {
             filecontent: contents,
             shared: true
         });
-        
+
         var userRef = firebase.database().ref('users/');
         userRef.once('value', function (snapshot) {
             snapshot.forEach(function (childSnapshot) {
@@ -297,6 +297,15 @@ function saveFileContentsFromCode(user_id, loc) {
                 var childData = childSnapshot.val();
                 console.log(childKey);
                 console.log(childData);
+                if (childData.vLab) {
+                    // var inboxRef = firebase.database().ref('Inbox/' + childKey);
+
+                    //Storing notifications
+                    firebase.database().ref('Inbox/' + childKey + '/' + fileName).set({
+                        filecontent: contents,
+                        shared: true
+                    });
+                }
             });
         });
     }
