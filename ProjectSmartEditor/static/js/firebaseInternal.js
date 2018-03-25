@@ -302,7 +302,7 @@ function saveFileContentsFromCode(user_id, loc) {
 
                     //Storing notifications
                     firebase.database().ref('Inbox/' + childKey + '/' + fileName).set({
-                        filecontent: contents,
+                        message: contents,
                         seen: false
                     });
                 }
