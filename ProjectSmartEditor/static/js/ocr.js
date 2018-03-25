@@ -17,6 +17,7 @@ function progressUpdate(packet) {
 			var progress = document.createElement('progress')
 			progress.value = packet.progress
 			progress.max = 1
+			progress.class = 'determinate'
 			line.appendChild(progress)
 		}
 

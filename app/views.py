@@ -16,6 +16,8 @@ def textOCR(request):
 def codeOCR(request):
     return render_to_response('codeConverter.html')
 
+def virtualLab(request):
+    return render_to_response('virtualLab.html')
 
 # def logInWithEmail(request):
 # if request.method == "POST":

@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app',
-    'corsheaders'
+    'app'
 ]
 
 MIDDLEWARE = [
@@ -106,21 +105,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-CORS_ORIGIN_WHITELIST = (
-    'smart-editor.herokuapp.com',
-    'localhost:8000',
-    '127.0.0.1:9000'
-)
-
-CORS_ALLOW_METHODS = (
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-)
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
