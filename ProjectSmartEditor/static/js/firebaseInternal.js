@@ -472,7 +472,7 @@ function showFiles(user_id) {
     var cardRow = $('<ul>', {
         class: 'collapsible popout',
         collapsible: 'expandable',
-        style: 'margin-left:50px;width:40%;font-size:20px;font-family:Robotica'
+        style: 'margin-left:17%;width:40%;font-size:20px;font-family:Robotica'
     });
 
     var textEditorRef = firebase.database().ref('Files/' + '/TextEditor/' + user_id);
